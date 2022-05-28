@@ -1,5 +1,5 @@
 let pword = document.getElementById("pword"); //this grabs the password the user enters thru using ID
-let answer = document.getElementById("answer");
+let answer = document.getElementById("answer"); // this grabs the answer and shows it below the answer box
 let button = document.getElementById("btn");//this does what the action of the button which to submit thru ID
 
 

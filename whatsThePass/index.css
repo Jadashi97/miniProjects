@@ -1,10 +1,19 @@
+ body{
+    text-align: center;
+    background-color: bisque;
+}
+
+.word{
+    font-size: 3rem;
+    padding-left: 100px;
+    text-align: center;
+};
+
+
 h1{
     font-size: 80px;
     text-align: center
     
 };
 
-.allOf{
-    text-align: center;
-    background-color: blanchedalmond;
-};
+
