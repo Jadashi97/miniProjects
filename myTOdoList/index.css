@@ -1,3 +1,47 @@
+body {
+    margin: 0;
+    min-width: 250px;
+};
+  
+
 h1{
     font-size: 40px;
+};
+
+/* Include the padding and border in an element's total width and height */
+* {
+    box-sizing: border-box;
+};
+
+/* Remove margins and padding from the list */
+ol {
+    margin: 0;
+    padding: 1px;
+};
+
+/* Style the list items */
+ol li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+
+    /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+};
+
+ol li:hover {
+    background: #ddd;
+};
+
+/* When clicked on, add a background color and strike out text */
+ol li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
 };

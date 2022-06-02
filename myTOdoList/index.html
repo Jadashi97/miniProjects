@@ -8,22 +8,18 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h1>Today's todo list</h1>
-    <!-- add form to handle the content submitted -->
-    <form id="add-to">
-        <input type="text" placeholder="Title.." id="my-input">
-        <button type="submit" class="add-Btn">Create</button>
-
-    </form>
-
-    <div>
-        <ol id="my-ol">
-            <li>get coffee</li>
-            <li>get haircut</li>
-            <li>code</li>
-        </ol>
-        <a class="clearAll">clear all</a>
+    <div id="myDIV" class="header">
+        <h2>My To Do List</h2>
+        <input type="text" id="myInput" placeholder="Title...">
+        <!-- this adds a pointing device button  -->
+        <button id="btn" type="submit">add</button>
+        <!-- <span onclick="newElement()" class="addBtn">Add</span> -->
     </div>
+
+    <ol id="my-ol">
+        <li>Jabulani</li>
+        <li class="checked">bakayo</li>
+    </ol>
     <script src="index.js"></script>
 </body>
 </html>
