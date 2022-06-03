@@ -25,6 +25,3 @@ for(let i = 0; i < close.length; i++){ //loop thru the close
 
     }
 };
-
-// Add a "checked" symbol when clicking on a list item
-
