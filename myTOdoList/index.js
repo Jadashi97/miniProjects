@@ -12,16 +12,22 @@ for(let i = 0; i < myList.length; i++){ //for loop to go thru the entire mylist
     span.appendChild(txt); // inserts the close text node
 
     myList[i].appendChild(span); //inserts the span variable created in line 6  
+
+    // localStorage.setItem("tasks", JSON.stringify(savedItems)); //this sets the item in JSON
+
 };
 
 // Click on a close button to hide the current list item
 var close = document.getElementsByClassName("close"); //grab the element close and set it to variable close
+
+// let savedItems = JSON.parse(localStorage.getItem("tasks")) || []; //implementing the local storage and store in JSON
 
 for(let i = 0; i < close.length; i++){ //loop thru the close 
     close[i].onclick = function(){
         var div = this.parentElement //set the element of the parent div to a var div
 
         div.style.display = "none" //this toggles the display to not show much
+        savedItems
 
     }
 };
@@ -51,10 +57,11 @@ button.addEventListener("click", function(){
     li.appendChild(textnode);
 
     if (inputValue === '') {
+        window.alert("wait holdUp! write something!!!")
     } else {
         document.getElementById("myUL").appendChild(li);
     }
-    document.getElementById("myInput").value = " ";
+    // document.getElementById("myInput").value = " ";
 
     //this adds the new list with all the styling 
     var span = document.createElement("SPAN") //this creates a new HTML element
@@ -63,6 +70,7 @@ button.addEventListener("click", function(){
     span.appendChild(txt); // inserts the close text node
     li.appendChild(span);
 
+    //this includes the close button to the new list when add button is clicked
     for (let i = 0; i < close.length; i++) { //loop thru the close 
         close[i].onclick = function () {
             var div = this.parentElement; //set the element of the parent div to a var div
