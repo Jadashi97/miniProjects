@@ -1,4 +1,3 @@
-
 // Create a "close" button and append it to each list item
 
 let myList = document.getElementsByTagName("li") //grab the the list thru the Html tag name and set it as the variable
