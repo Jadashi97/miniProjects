@@ -1,0 +1,50 @@
+body{
+    text-align: center;
+    background-color: beige;
+}
+
+#result{
+    height: 250px;
+    display: block;
+    margin-top: 3em;
+}
+
+h1{
+    font-size: 8rem;
+    color: rgb(45, 56, 52);
+}
+
+.num1{
+    font-size: 2rem;
+    border-top-width: 1px;
+    padding-right: 5px;
+    margin-bottom: 30px;
+}
+
+.chooseOp{
+    font-size: 2rem;
+
+}
+
+#operator{
+    font-size: 1.5rem;
+    border-top-width: 1px;
+    padding-right: 5px;
+    margin-bottom: 5px;
+}
+
+.num2{
+    font-size: 2rem;
+    border-top-width: 1px;
+    padding-right: 5px;
+    margin-bottom: 5px;
+}
+
+.btn{
+    background-color: orange;
+    font-size: 2rem;
+}
+
+.result{
+    font-size: 3rem;
+}

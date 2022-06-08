@@ -11,10 +11,10 @@
     <h1> My calculator </h1>
 
     <form id="result">
-        <label for="lvalue">Enter the second number</label>
-        <input type="number" placeholder="Enter first number" id="num1">
+        <label class="num1" for="lvalue">Enter the first number</label>
+        <input class="num1" type="number" placeholder="Enter first number" id="num1">
         <br>
-        <div class="operator">
+        <div class="chooseOp">
             <label for="operators">choose operator</label>
             <select id="operator">
                 <option value="">Please enter operator</option>
@@ -25,15 +25,15 @@
             </select>
         </div>
         <br>
-        <label for="lvalue">Enter the second number</label>
-        <input type="number" placeholder="Enter second number" id="num2">
+        <label class="num2" for="lvalue">Enter the second number</label>
+        <input class="num2" type="number" placeholder="Enter second number" id="num2">
         <br>
         
         <!-- this is when button is clicked the operator executes -->
-        <button type="submit">calculate</button>   
+        <button class="btn" type="submit">calculate</button>   
     </form>
     <hr>
-    <p id="compute-result"></p>
+    <p class="result" id="compute-result"></p>
 
     <script src="calc.js"></script>
 </body>
