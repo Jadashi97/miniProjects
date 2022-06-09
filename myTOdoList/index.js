@@ -20,21 +20,6 @@ for(let i = 0; i < myList.length; i++){ //for loop to go thru the entire mylist
 
 };
 
-// Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close"); //grab the element close and set it to variable close
-
-// let savedItems = JSON.parse(localStorage.getItem("tasks")) || []; //implementing the local storage and store in JSON
-
-for(let i = 0; i < close.length; i++){ //loop thru the close 
-    close[i].onclick = function(){
-        var div = this.parentElement //set the element of the parent div to a var div
-
-        div.style.display = "none" //this toggles the display to not show much
-        savedItems
-
-    }
-};
-
 // add a checked symbol to show that the item is done
 
 var theList = document.querySelector("ul") //this grabs the very first ul item and sets a variable 
@@ -74,8 +59,11 @@ button.addEventListener("click", function(){
     li.appendChild(span);
 
     //this includes the close button to the new list when add button is clicked
+    // Click on a close button to hide the current list item
+    let close = document.getElementsByClassName("close"); //grab the element close and set it to variable close
+
     for (let i = 0; i < close.length; i++) { //loop thru the close 
-        close[i].onclick = function () {
+        close[i].onclick = function(){
 
             var div = this.parentElement; //set the element of the parent div to a var div
 
