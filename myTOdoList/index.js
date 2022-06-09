@@ -1,3 +1,9 @@
+//include a date to it
+
+let d = new Date();
+document.getElementById("date").innerHTML = d;
+
+
 // Create a "close" button and append it to each list item
 
 let myList = document.getElementsByTagName("li") //grab the the list thru the Html tag name and set it as the variable
@@ -11,8 +17,6 @@ for(let i = 0; i < myList.length; i++){ //for loop to go thru the entire mylist
     span.appendChild(txt); // inserts the close text node
 
     myList[i].appendChild(span); //inserts the span variable created in line 6  
-
-    // localStorage.setItem("tasks", JSON.stringify(savedItems)); //this sets the item in JSON
 
 };
 
@@ -72,6 +76,7 @@ button.addEventListener("click", function(){
     //this includes the close button to the new list when add button is clicked
     for (let i = 0; i < close.length; i++) { //loop thru the close 
         close[i].onclick = function () {
+
             var div = this.parentElement; //set the element of the parent div to a var div
 
             div.style.display = "none"; //this toggles the display to not show much
