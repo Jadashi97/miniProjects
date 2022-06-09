@@ -2,6 +2,18 @@
 
 let d = new Date();
 document.getElementById("date").innerHTML = d;
+let tasks = [];//this will hold current todos
+
+function getTasksFromLocalStorage(){
+    // it will return `null` if nothing's there
+    tasks = localStorage.getItem('tasks') || []
+  
+    if (tasks) {
+      // convert it to an array so you can loop over it
+      tasks = JSON.parse(tasks)
+    }
+};
+
 
 
 // Create a "close" button and append it to each list item
@@ -49,7 +61,9 @@ button.addEventListener("click", function(){
     } else {
         document.getElementById("myUL").appendChild(li);
     }
-    // document.getElementById("myInput").value = " ";
+    document.getElementById("myInput").value = " ";
+
+    
 
     //this adds the new list with all the styling 
     var span = document.createElement("SPAN") //this creates a new HTML element
