@@ -4,17 +4,19 @@ let d = new Date();
 document.getElementById("date").innerHTML = d;
 let tasks = [];//this will hold current todos
 
-function getTasksFromLocalStorage(){
-    // it will return `null` if nothing's there
-    tasks = localStorage.getItem('tasks') || []
-  
-    if (tasks) {
-      // convert it to an array so you can loop over it
-      tasks = JSON.parse(tasks)
-    }
+// including localstorage
+let data = []; //set up empty array to save to the todos
+
+let acceptData = () => {
+  data.push({
+    text: myInput.value, //grab the input with its id
+  });
+
+  localStorage.setItem("data", JSON.stringify(data)); //this sets the item in JSON format
+
+  console.log(data);
+
 };
-
-
 
 // Create a "close" button and append it to each list item
 
@@ -47,6 +49,7 @@ theList.addEventListener('click', function(event){ //this method attaches an eve
 //create a new list when you click on the add button
 
 let button = document.getElementById("myButton"); //this grabs the element and assigns it the var button
+let msg = document.getElementById("msg");
 
 //this handles what to do when the button is clicked
 button.addEventListener("click", function(){
@@ -61,9 +64,9 @@ button.addEventListener("click", function(){
     } else {
         document.getElementById("myUL").appendChild(li);
     }
-    document.getElementById("myInput").value = " ";
+    msg.innerHTML = "";
 
-    
+    acceptData();
 
     //this adds the new list with all the styling 
     var span = document.createElement("SPAN") //this creates a new HTML element
@@ -86,3 +89,10 @@ button.addEventListener("click", function(){
         }
     }
 });
+
+//getting data from local storage
+(() => {
+    data = JSON.parse(localStorage.getItem("data")) || [];
+    // console.log(data);
+    // createTasks();
+})();
