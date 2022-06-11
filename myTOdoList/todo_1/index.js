@@ -1,5 +1,7 @@
-//include a date to it
+//all selcectors
 
+
+//include a date to it
 let d = new Date();
 document.getElementById("date").innerHTML = d;
 let tasks = [];//this will hold current todos
@@ -17,6 +19,18 @@ let acceptData = () => {
   console.log(data);
 
 };
+
+
+// add a link to html page to update my to do
+
+// let addLink = () =>{
+//     var link = document.createElement('a');//create link
+
+//     link.setAttribute('href', 'URL_ENTERED');//set href
+//     link.innerHTML = '~';//set text to be seen
+//     myList[i].appendChild(link);//add to body
+
+// };
 
 // Create a "close" button and append it to each list item
 
@@ -44,7 +58,6 @@ theList.addEventListener('click', function(event){ //this method attaches an eve
         event.target.classList.toggle("checked")
     }
 }, false)
-
 
 //create a new list when you click on the add button
 
@@ -93,6 +106,6 @@ button.addEventListener("click", function(){
 //getting data from local storage
 (() => {
     data = JSON.parse(localStorage.getItem("data")) || [];
-    // console.log(data);
+    console.log(data);
     // createTasks();
 })();
