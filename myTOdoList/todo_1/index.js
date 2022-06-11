@@ -7,16 +7,16 @@ document.getElementById("date").innerHTML = d;
 let tasks = [];//this will hold current todos
 
 // including localstorage
-let data = []; //set up empty array to save to the todos
+let infor = []; //set up empty array to save to the todos
 
 let acceptData = () => {
-  data.push({
+  infor.push({
     text: myInput.value, //grab the input with its id
   });
 
-//   localStorage.setItem("data", JSON.stringify(data)); //this sets the item in JSON format
+  localStorage.setItem("data", JSON.stringify(infor)); //this sets the item in JSON format
 
-//   console.log(data);
+  console.log(infor);
 
 };
 
@@ -93,9 +93,9 @@ button.addEventListener("click", function(){
     }
 });
 
-// //getting data from local storage
-// (() => {
-//     data = JSON.parse(localStorage.getItem("data")) || [];
-//     console.log(data);
-//     // createTasks();
-// })();
+//getting data from local storage
+(() => {
+    infor = JSON.parse(localStorage.getItem("infor")) || [];
+    console.log(infor);
+    // createTasks();
+})();
