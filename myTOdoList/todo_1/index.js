@@ -14,23 +14,12 @@ let acceptData = () => {
     text: myInput.value, //grab the input with its id
   });
 
-  localStorage.setItem("data", JSON.stringify(data)); //this sets the item in JSON format
+//   localStorage.setItem("data", JSON.stringify(data)); //this sets the item in JSON format
 
-  console.log(data);
+//   console.log(data);
 
 };
 
-
-// add a link to html page to update my to do
-
-// let addLink = () =>{
-//     var link = document.createElement('a');//create link
-
-//     link.setAttribute('href', 'URL_ENTERED');//set href
-//     link.innerHTML = '~';//set text to be seen
-//     myList[i].appendChild(link);//add to body
-
-// };
 
 // Create a "close" button and append it to each list item
 
@@ -47,6 +36,7 @@ for(let i = 0; i < myList.length; i++){ //for loop to go thru the entire mylist
     myList[i].appendChild(span); //inserts the span variable created in line 6  
 
 };
+
 
 // add a checked symbol to show that the item is done
 
@@ -103,9 +93,9 @@ button.addEventListener("click", function(){
     }
 });
 
-//getting data from local storage
-(() => {
-    data = JSON.parse(localStorage.getItem("data")) || [];
-    console.log(data);
-    // createTasks();
-})();
+// //getting data from local storage
+// (() => {
+//     data = JSON.parse(localStorage.getItem("data")) || [];
+//     console.log(data);
+//     // createTasks();
+// })();
