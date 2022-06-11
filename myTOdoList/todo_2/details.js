@@ -78,6 +78,8 @@ function addToLocalStorage(todos) {
   localStorage.setItem('todos', JSON.stringify(todos));
   // render them to screen
   renderTodos(todos);
+
+  console.log(todos);
 };
 
 
