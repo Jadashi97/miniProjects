@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Todo</title>
+	</head>
+	<body>
+		<h1>My Todo App 1.0</h1>
+		<h2>Create a new todo</h2>
+		<form name="create-new-todo-item" id="create-new-todo-item">
+			<input type="text" id="item" name="item" placeholder="todo title" />
+			<select id="status" name="status">
+				<option id="todo" value="todo">todo</option>
+				<option id="doing" value="doing">doing</option>
+				<option id="done" value="done">done</option>
+			</select>
+
+			<div id="create-edit-btn"><button type="submit">create</button></div>
+		</form>
+		<h2>List of Todos</h2>
+		<hr />
+		<div id="todo-lists"></div>
+		<script src="app.js"></script>
+	</body>
+</html>
