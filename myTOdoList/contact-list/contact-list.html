@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contact App</title>
+	</head>
+	<body>
+		<h1>Contact App 1.0</h1>
+		<h2>Create Contact</h2>
+		<hr />
+		<form id="create-new-contact">
+			<div class="inputs">
+				<input
+					type="text"
+					id="first-name"
+					name="first-name"
+					placeholder="first name"
+				/>
+				<input
+					type="text"
+					id="last-name"
+					name="last-name"
+					placeholder="last name"
+				/>
+				<input
+					type="text"
+					id="nationality"
+					name="nationality"
+					placeholder="nationality"
+				/>
+			</div>
+
+			<div id="edit-contact">
+				<button id="create" type="submit">Create</button>
+			</div>
+		</form>
+
+		<h2>Contact List</h2>
+		<hr />
+		<div id="list-contacts"></div>
+
+		<script src="contact.js"></script>
+	</body>
+</html>
