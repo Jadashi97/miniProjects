@@ -1,4 +1,3 @@
-
 const { MongoClient } = require("mongodb"); //this uses object destructuring
 
 // Replace the url string with your MongoDB deployment's connection string.
@@ -46,6 +45,3 @@ async function run() { //makes function return a promise
 
 }
 run().catch(console.dir); //find out why this is here
-
-
-
