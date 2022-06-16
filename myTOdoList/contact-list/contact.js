@@ -39,6 +39,8 @@ const readContact = (contacts) => {
 	return htmlContacts;
 };
 
+//CREATE new contact 
+
 const createNewContact = (event) => {
 	event.preventDefault();
 	const firstName = event.target["first-name"].value;
@@ -60,7 +62,16 @@ const createNewContact = (event) => {
 	event.target["first-name"].value = "";
 	event.target["last-name"].value = "";
 	event.target.nationality.value = "";
+
 };
+
+//add to local storage
+localStorage.setItem("firstName", contacts.firstName);
+
+//getting item from the localstorage
+console.log(localStorage.getItem("firstName"));
+
+
 const contactForm = document.querySelector("#create-new-contact");
 
 contactForm.addEventListener("submit", createNewContact);
@@ -77,15 +88,15 @@ const populateContactFormFields = (id) => {
 
 	editBox.innerHTML = `<button id="save" type="submit">Save Changes</button>`;
 
-	// document.addEventListener(
-	// 	"click",
-	// 	function (e) {
-	// 		if (e.target && e.target.id == "delete-todo-item") {
+// 	// document.addEventListener(
+// 	// 	"click",
+// 	// 	function (e) {
+// 	// 		if (e.target && e.target.id == "delete-todo-item") {
 
-	//         }
-	// 	},
-	// 	false,
-	// );
+// 	//         }
+// 	// 	},
+// 	// 	false,
+// 	// );
 };
 
 const editContact = (event) => {
