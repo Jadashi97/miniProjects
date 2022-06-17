@@ -1,0 +1,13 @@
+h1{
+    font-size: 3rem;
+    font-family: 'Anek Malayalam', sans-serif;
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
