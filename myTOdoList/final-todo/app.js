@@ -172,9 +172,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		},
 		false,
 	);
+
+	//add to local storage
+
+	localStorage.setItem("todos", JSON.stringify( {item: "currentTodo"}));
+
+
+	// console.log(localStorage.getItem("currentTodo"));
+
 });
 
-//add to local storage
+
 
 //still figuring out how to set to local storage
 
