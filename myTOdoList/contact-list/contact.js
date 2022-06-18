@@ -19,6 +19,7 @@ let contacts = [
 	},
 ];
 
+//this helps us get a handle on the list-contacts id
 const contactListHandle = document.getElementById("list-contacts");
 
 // CRUDL Read list view
@@ -64,12 +65,13 @@ const createNewContact = (event) => {
 	event.target.nationality.value = "";
 
 };
+//// please explain the whole idea behind local storage and how to keep stuff on the page and not on the console??
 
 //add to local storage
-localStorage.setItem("firstName", contacts.firstName);
+localStorage.setItem("contacts",JSON.stringify(contacts));
 
-//getting item from the localstorage
-console.log(localStorage.getItem("firstName"));
+// get item from localStorage
+localStorage.getItem("contacts");
 
 
 const contactForm = document.querySelector("#create-new-contact");
@@ -88,19 +90,21 @@ const populateContactFormFields = (id) => {
 
 	editBox.innerHTML = `<button id="save" type="submit">Save Changes</button>`;
 
-// 	// document.addEventListener(
-// 	// 	"click",
-// 	// 	function (e) {
-// 	// 		if (e.target && e.target.id == "delete-todo-item") {
+	document.addEventListener(
+		"click",
+		function (e) {
+			if (e.target && e.target.id == "delete-todo-item") {
 
-// 	//         }
-// 	// 	},
-// 	// 	false,
-// 	// );
+	        }
+		},
+		false,
+	);
 };
 
+//trying to figure out this edit feature please help???
 const editContact = (event) => {
-	//  do somthing
+	event.preventDefault();
+	console.log("trying to set the ball rolling for this todo!!");
 };
 
 const deleteContact = (id) => {
