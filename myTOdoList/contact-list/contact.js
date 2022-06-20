@@ -22,26 +22,23 @@ let contacts = [
 //this helps us get a handle on the list-contacts id
 const contactListHandle = document.getElementById("list-contacts");
 
+
 // CRUDL Read list view
 const readContact = (contacts) => {
 	let htmlContacts = "",
 		i = 0;
 	while (i < contacts.length) {
-		htmlContacts += `<p data-id=${contacts[i].id}>${contacts[i].firstName}, ${
-			contacts[i].nationality
-		}
+		htmlContacts += `<p data-id=${contacts[i].id}>${contacts[i].firstName}, ${contacts[i].lastName}
+		  ${contacts[i].nationality}
         <button onclick="deleteContact(${contacts[i].id})">delete</button>
-        <button onclick="populateContactFormFields(${
-					contacts[i].id - 1
-				})">edit</button>
-        </p>`;
-		i++;
+        <button onclick="populateContactFormFields(${contacts[i].id - 1})">edit</button></p>`;
+		i++; 
 	}
-	return htmlContacts;
+	return htmlContacts; //as it states, it returns the above stuff appended to the created object
 };
 
 //CREATE new contact 
-
+ 
 const createNewContact = (event) => {
 	event.preventDefault();
 	const firstName = event.target["first-name"].value;
@@ -65,18 +62,18 @@ const createNewContact = (event) => {
 	event.target.nationality.value = "";
 
 };
-//// please explain the whole idea behind local storage and how to keep stuff on the page and not on the console??
+// //// please explain the whole idea behind local storage and how to keep stuff on the page and not on the console??
 
-//add to local storage
-localStorage.setItem("contacts",JSON.stringify(contacts));
+// //add to local storage
+// localStorage.setItem("contacts",JSON.stringify(contacts));
 
-// get item from localStorage
-localStorage.getItem("contacts");
+// // get item from localStorage
+// localStorage.getItem("contacts");
 
 
-const contactForm = document.querySelector("#create-new-contact");
+const contactForm = document.querySelector("#create-new-contact"); //grab the form using the querry selector
 
-contactForm.addEventListener("submit", createNewContact);
+contactForm.addEventListener("submit", createNewContact); //when create is clicked it adds the form objects on to the DOM
 
 const populateContactFormFields = (id) => {
 	document.getElementById("first-name").value = contacts[id].firstName;
