@@ -1,0 +1,30 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Todo</title>
+	</head>
+	<body>
+		<h1>Create a New Todo Item</h1>
+
+		<form id="create-new-todo-item">
+			<input type="text" id="item" name="item" placeholder="todo title" />
+			<select id="status" name="status">
+				<option id="todo" value="todo">todo</option>
+				<option id="doing" value="doing">doing</option>
+				<option id="done" value="done">done</option>
+			</select>
+
+			<div><button type="submit">create</button></div>
+		</form>
+
+		<br />
+		<br />
+		<button>
+			<a href="list.html">Go to todo list</a>
+		</button>
+
+		<script src="index.js"></script>
+	</body>
+</html>
