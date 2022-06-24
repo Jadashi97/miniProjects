@@ -28,6 +28,7 @@ const readContact = (contacts) => {
 	let htmlContacts = "",
 		i = 0;
 	while (i < contacts.length) {
+		//this is to add the above array of contacts including the delete and edit buttons to the DOM
 		htmlContacts += `<p data-id=${contacts[i].id}>${contacts[i].firstName}, ${contacts[i].lastName}
 		  ${contacts[i].nationality}
         <button onclick="deleteContact(${contacts[i].id})">delete</button>
@@ -45,6 +46,7 @@ const createNewContact = (event) => {
 	const lastName = event.target["last-name"].value;
 	const nationality = event.target.nationality.value;
 
+	//this is to allow us to create a new contact
 	const newContact = {
 		id: contacts.length + 1,
 		firstName: firstName,
@@ -85,7 +87,7 @@ const populateContactFormFields = (id) => {
 	const editBtn = document.getElementById("edit");
 	const editBox = document.getElementById("edit-contact");
 
-	editBox.innerHTML = `<button id="save" type="submit">Save Changes</button>`;
+	editBtn.innerHTML = `<button id="save" type="submit">Save Changes</button>`;
 
 	document.addEventListener(
 		"click",
@@ -101,7 +103,8 @@ const populateContactFormFields = (id) => {
 //trying to figure out this edit feature please help???
 const editContact = (event) => {
 	event.preventDefault();
-	console.log("trying to set the ball rolling for this todo!!");
+	console.log("trying to set the ball rolling for this contact!!");
+
 };
 
 const deleteContact = (id) => {
