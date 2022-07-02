@@ -35,29 +35,33 @@ const contactInfor = document.getElementById("contact-list");
 
 //the CRUD list view 
 
-const ReadContactInfor = function (contacts) {
+const readContactInfor = function (contacts) {
 
     let initialContacts = " ";
+    
+    i = 0;
 
-    for(let i = 0;i <= contacts.length, i++;){
-        initialContacts += `<p data-id=${contacts[i].id}>${contacts[i].firstName}, ${contacts[i].lastName},
-        ${contacts[i].otherName}, ${contacts[i].birthDate}, ${contacts[i].phoneNumber}, ${contacts[i].birthDate},
+    while(i < contacts.length){
+        initialContacts += `<p data-id=${contacts[i].id}, ${contacts[i].firstName}, ${contacts[i].lastName},
+        ${contacts[i].otherName}, ${contacts[i].birthDate}, ${contacts[i].phoneNumber},
         ${contacts[i].email},${contacts[i].country},${contacts[i].city}, ${contacts[i].street},
          ${contacts[i].state}></p>`
-        
-    }
-    return initialContacts;
-};
 
+        i++;
+    }
+
+    console.log(initialContacts)
+    // return initialContacts;
+};
 
 //CREATE a new contact
 
-const CreateNewContact = function(event){
+const createNewContact = function(event){
     event.preventDefault();
     const firstName = event.target["first-name"].value;
     const lastName = event.target["last-name"].value;
-    const otherName = event.target["Oname"].value;
-    const birthDate = event.target["bday"].value;
+    // const otherName = event.target["Oname"].value;
+    // const birthDate = event.target["bday"].value;
     const phoneNumber = event.target["phone"].value;
 
     const newContactPerson = {
@@ -78,9 +82,15 @@ const CreateNewContact = function(event){
 
     contacts.push(newContactPerson);
 
-    contactInfor.innerHTML = ReadContactInfor(contacts);
+    contactInfor.innerHTML = readContactInfor(contacts);
 }
+
 
 const contactForm = document.querySelector("#create-new-contact");
 
-contactForm.addEventListener("submit", CreateNewContact);
+contactForm.addEventListener("submit", createNewContact);
+
+
+document.addEventListener("DOMContentLoaded", () => {
+	contactInfor.innerHTML = readContactInfor(contacts);
+});
