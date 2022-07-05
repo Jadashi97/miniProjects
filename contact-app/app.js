@@ -50,8 +50,8 @@ const readContactInfor = function (contacts) {
         i++;
     }
 
-    console.log(initialContacts)
-    // return initialContacts;
+    // console.log(initialContacts)
+    return initialContacts;
 };
 
 //CREATE a new contact
@@ -91,6 +91,13 @@ const contactForm = document.querySelector("#create-new-contact");
 contactForm.addEventListener("submit", createNewContact);
 
 
+const populateContactForm = (id) => {
+    document.getElementById("first-name").value = contacts[id].firstName;
+	document.getElementById("last-name").value = contacts[id].lastName;
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
 	contactInfor.innerHTML = readContactInfor(contacts);
 });
+
