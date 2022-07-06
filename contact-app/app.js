@@ -29,13 +29,14 @@ let contacts = [
 
 ]
 
+
 //get handle of the contact list
 
 const contactInfor = document.getElementById("contact-list");
 
 //the CRUD list view 
 
-const readContactInfor = function (contacts) {
+const readContactInfor = function(contacts) {
 
     let initialContacts = " ";
     
@@ -43,15 +44,14 @@ const readContactInfor = function (contacts) {
 
     while(i < contacts.length){
         initialContacts += `<p data-id=${contacts[i].id}, ${contacts[i].firstName}, ${contacts[i].lastName},
-        ${contacts[i].otherName}, ${contacts[i].birthDate}, ${contacts[i].phoneNumber},
-        ${contacts[i].email},${contacts[i].country},${contacts[i].city}, ${contacts[i].street},
-         ${contacts[i].state}></p>`
-
+        ${contacts[i].phoneNumber},
+        ${contacts[i].email},${contacts[i].country},${contacts[i].city},${contacts[i].state}
+        <button onclick="populateContactFormFields(${contacts[i].id - 1})">initialContacts</button></p>`
         i++;
-    }
-
-    // console.log(initialContacts)
+    };
     return initialContacts;
+    // console.log(initialContacts)
+    // contactInfor.innerHTML = initialContacts;
 };
 
 //CREATE a new contact
@@ -66,7 +66,7 @@ const createNewContact = function(event){
 
     const newContactPerson = {
 
-        id: contacts.lenght + 1,
+        id: contacts.length + 1,
         firstName: "Lokose",
         lastName: "Daniel",
         otherName: "Nyarji",
@@ -81,8 +81,8 @@ const createNewContact = function(event){
     };
 
     contacts.push(newContactPerson);
-
     contactInfor.innerHTML = readContactInfor(contacts);
+
 }
 
 
@@ -94,6 +94,9 @@ contactForm.addEventListener("submit", createNewContact);
 const populateContactForm = (id) => {
     document.getElementById("first-name").value = contacts[id].firstName;
 	document.getElementById("last-name").value = contacts[id].lastName;
+
+
+    const createBtn = document.getElementById("create");
 }
 
 
