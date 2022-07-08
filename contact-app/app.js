@@ -33,6 +33,10 @@ let contacts = [
 //get handle of the contact list
 
 const contactInfor = document.getElementById("contact-list");
+contactInfor.innerHTML = contacts;
+
+
+
 
 //the CRUD list view 
 
@@ -46,7 +50,7 @@ const readContactInfor = function(contacts) {
         initialContacts += `<p data-id=${contacts[i].id}, ${contacts[i].firstName}, ${contacts[i].lastName},
         ${contacts[i].phoneNumber},
         ${contacts[i].email},${contacts[i].country},${contacts[i].city},${contacts[i].state}
-        <button onclick="populateContactFormFields(${contacts[i].id - 1})">initialContacts</button></p>`
+        </p>`
         i++;
     };
     return initialContacts;
