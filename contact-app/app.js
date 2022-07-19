@@ -32,18 +32,19 @@ let contacts = [
 
 //get handle of the contact list
 
-const contactInfor = document.getElementById("contact-list");
+let contactInfor = document.getElementById("contact-list");
 // contactInfor.innerHTML = contacts.id;
-
-
 
 
 //the CRUD list view 
 
-const readContactInfor = function(contacts,index, arr) {
-    console.log(contacts);
-    // let initialContacts = " ";
+const readContactInfor = function(contact,index, arr) {
     
+    let initialContacts = document.createElement("h3");
+    
+    initialContacts.innerHTML  = contact[index].id,contact[index].firstName, contact[index].lastName,contact[index].phoneNumber,contacts[index].email, contacts[index].country, contacts[index].city, contacts[index].state
+
+    //     i++;
     // i = 0;
 
     // while(i < contacts.length){
@@ -57,10 +58,19 @@ const readContactInfor = function(contacts,index, arr) {
     // console.log(initialContacts)
     // contactInfor.innerHTML = initialContacts;
 };
+// let index = "0";
+// let initialContacts = document.createElement("h3");
+
+// for(let i = 0; i < contacts.length; i++){
+//     initialContacts.innerHTML  =+ contacts[i].id,contacts[i].firstName, contacts[i].lastName,contacts[i].phoneNumber,contacts[i].email, contacts[i].country, contacts[i].city, contacts[i].state
+//     contactInfor.appendChild(initialContacts);
+// }
+
+
 
 let readList = contacts.map(readContactInfor);
 
-// console.log(readList);
+console.log(readList);
 
 let addedContacts = contacts.push(readList)
 console.log(addedContacts);
