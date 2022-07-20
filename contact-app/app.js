@@ -32,48 +32,53 @@ let contacts = [
 
 //get handle of the contact list
 
-let contactInfor = document.getElementById("contact-list");
+// document.getElementById("contact-list").innerHTML = JSON.stringify(contacts[0]);
 // contactInfor.innerHTML = contacts.id;
 
 
 //the CRUD list view 
 
-const readContactInfor = function(contact,index, arr) {
+// const readContactInfor = function(contact,index, arr) {
     
-    let initialContacts = document.createElement("h3");
+//     let initialContacts = document.createElement("h3");
     
-    initialContacts.innerHTML  = contact[index].id,contact[index].firstName, contact[index].lastName,contact[index].phoneNumber,contacts[index].email, contacts[index].country, contacts[index].city, contacts[index].state
+//     initialContacts.innerHTML  = contact[index].id,contact[index].firstName, contact[index].lastName,contact[index].phoneNumber,contacts[index].email, contacts[index].country, contacts[index].city, contacts[index].state
 
-    //     i++;
-    // i = 0;
+//     //     i++;
+//     // i = 0;
 
-    // while(i < contacts.length){
-    //     initialContacts += `<p data-id=${contacts[index].id}, ${contacts[index].firstName}, ${contacts[index].lastName},
-    //     ${contacts[index].phoneNumber},
-    //     ${contacts[index].email},${contacts[index].country},${contacts[index].city},${contacts[index].state}
-    //     </p>`
-    //     i++;
-    // };
-    // return initialContacts;
-    // console.log(initialContacts)
-    // contactInfor.innerHTML = initialContacts;
-};
-// let index = "0";
-// let initialContacts = document.createElement("h3");
+//     // while(i < contacts.length){
+//     //     initialContacts += `<p data-id=${contacts[index].id}, ${contacts[index].firstName}, ${contacts[index].lastName},
+//     //     ${contacts[index].phoneNumber},
+//     //     ${contacts[index].email},${contacts[index].country},${contacts[index].city},${contacts[index].state}
+//     //     </p>`
+//     //     i++;
+//     // };
+//     // return initialContacts;
+//     // console.log(initialContacts)
+//     // contactInfor.innerHTML = initialContacts;
+// };
+// // let index = "0";
+// // let initialContacts = document.createElement("h3");
 
-// for(let i = 0; i < contacts.length; i++){
-//     initialContacts.innerHTML  =+ contacts[i].id,contacts[i].firstName, contacts[i].lastName,contacts[i].phoneNumber,contacts[i].email, contacts[i].country, contacts[i].city, contacts[i].state
-//     contactInfor.appendChild(initialContacts);
-// }
+// // for(let i = 0; i < contacts.length; i++){
+// //     initialContacts.innerHTML  =+ contacts[i].id,contacts[i].firstName, contacts[i].lastName,contacts[i].phoneNumber,contacts[i].email, contacts[i].country, contacts[i].city, contacts[i].state
+// //     contactInfor.appendChild(initialContacts);
+// // }
 
 
 
-let readList = contacts.map(readContactInfor);
+let readList = contacts.map(contact =>{
+    console.log(contact)
+});
 
-console.log(readList);
+document.getElementById("contact-list").innerHTML = readList;
 
-let addedContacts = contacts.push(readList)
-console.log(addedContacts);
+
+// console.log(readList);
+
+// let addedContacts = contacts.push(readList)
+// console.log(addedContacts);
 
 
 //CREATE a new contact
