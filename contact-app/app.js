@@ -4,7 +4,7 @@ let contacts = [
         firstName: "Lokose",
         lastName: "Daniel",
         otherName: "Nyarji",
-        birthData: 08/10/1997,
+        birthData: "08/10/1997",
         phoneNumber: 0240034232,
         email: "ksdfkaj@gmail.com",
         country: "USA",
@@ -29,56 +29,28 @@ let contacts = [
 
 ];
 
+// List contacts on the DOM
+let myArray = Object.values(contacts[0]);
 
-//get handle of the contact list
-
-// document.getElementById("contact-list").innerHTML = JSON.stringify(contacts[0]);
-// contactInfor.innerHTML = contacts.id;
-
-
-//the CRUD list view 
-
-// const readContactInfor = function(contact,index, arr) {
-    
-//     let initialContacts = document.createElement("h3");
-    
-//     initialContacts.innerHTML  = contact[index].id,contact[index].firstName, contact[index].lastName,contact[index].phoneNumber,contacts[index].email, contacts[index].country, contacts[index].city, contacts[index].state
-
-//     //     i++;
-//     // i = 0;
-
-//     // while(i < contacts.length){
-//     //     initialContacts += `<p data-id=${contacts[index].id}, ${contacts[index].firstName}, ${contacts[index].lastName},
-//     //     ${contacts[index].phoneNumber},
-//     //     ${contacts[index].email},${contacts[index].country},${contacts[index].city},${contacts[index].state}
-//     //     </p>`
-//     //     i++;
-//     // };
-//     // return initialContacts;
-//     // console.log(initialContacts)
-//     // contactInfor.innerHTML = initialContacts;
-// };
-// // let index = "0";
-// // let initialContacts = document.createElement("h3");
-
-// // for(let i = 0; i < contacts.length; i++){
-// //     initialContacts.innerHTML  =+ contacts[i].id,contacts[i].firstName, contacts[i].lastName,contacts[i].phoneNumber,contacts[i].email, contacts[i].country, contacts[i].city, contacts[i].state
-// //     contactInfor.appendChild(initialContacts);
-// // }
+document.getElementById("contact-list").innerHTML = myArray;
 
 
-
-let readList = contacts.map(contact =>{
+//READ
+const readContacts = (contact, index, arr)=> {
     console.log(contact)
-});
+}
+contacts.map(readContacts);
 
-document.getElementById("contact-list").innerHTML = readList;
 
 
-// console.log(readList);
 
-// let addedContacts = contacts.push(readList)
-// console.log(addedContacts);
+// const readContactDetail = (contact) => contact.id ===  1;
+// const detail = contacts.find(readContactDetail)
+// console.log(detail);
+
+// CREATE
+
+
 
 
 //CREATE a new contact
