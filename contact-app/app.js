@@ -4,7 +4,7 @@ let contacts = [
         firstName: "Lokose",
         lastName: "Daniel",
         otherName: "Nyarji",
-        birthData: "08/10/1997",
+        birthDate: "08/10/1997",
         phoneNumber: 0240034232,
         email: "ksdfkaj@gmail.com",
         country: "USA",
@@ -18,7 +18,7 @@ let contacts = [
         firstName: "Wani",
         lastName: "Ronald",
         otherName: "Jada",
-        birthDate: 05 / 20 / 2000,
+        birthDate: "05/20/2000",
         phoneNumber: 0240034232,
         email: "ksdfkaj@yahoo.com",
         country: "USA",
@@ -29,17 +29,35 @@ let contacts = [
 
 ];
 
-// List contacts on the DOM
-let myArray = Object.values(contacts[0]);
+let contactListHandle =  document.getElementById("contact-list");
 
-document.getElementById("contact-list").innerHTML = myArray;
+
+// List contacts on the DOM
+// let myArray = Object.values(contacts[0 ,2]);
+
+// document.getElementById("contact-list").innerHTML = myArray;
 
 
 //READ
-const readContacts = (contact, index, arr)=> {
-    console.log(contact)
-}
-contacts.map(readContacts);
+const readContacts = (contacts, index, arr)=> {
+    let htmlContacts = " ";
+    let i = 0;
+    while(i < contacts.length){
+        htmlContacts += `<p data-id= ${contacts[i].id}>${contacts[i].firstName},${contacts[i].lastName},
+        ${contacts[i].otherName}, <br/>${contacts[i].birthDate}, ${contacts[i].phoneNumber}, ${contacts[i].email},<br/>
+        ${contacts[i].country}, ${contacts[i].city}, ${contacts[i].state}, ${contacts[i].street}
+        </p>`
+
+        i++;
+    }
+    return htmlContacts;
+
+};
+
+contactListHandle.innerHTML = readContacts(contacts)
+
+// console.log(readContacts());
+// contacts.map(readContacts);
 
 
 
