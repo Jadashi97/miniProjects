@@ -32,11 +32,6 @@ let contacts = [
 let contactListHandle =  document.getElementById("contact-list");
 
 
-// List contacts on the DOM
-// let myArray = Object.values(contacts[0 ,2]);
-
-// document.getElementById("contact-list").innerHTML = myArray;
-
 
 //READ
 const readContacts = (contacts, index, arr)=> {
@@ -53,59 +48,49 @@ const readContacts = (contacts, index, arr)=> {
     return htmlContacts;
 
 };
+//List objects in the array
 
 contactListHandle.innerHTML = readContacts(contacts)
 
-// console.log(readContacts());
-// contacts.map(readContacts);
-
-
-
-
-// const readContactDetail = (contact) => contact.id ===  1;
-// const detail = contacts.find(readContactDetail)
-// console.log(detail);
-
-// CREATE
 
 
 
 
 //CREATE a new contact
 
-// const createNewContact = function(event){
-//     event.preventDefault();
-//     const firstName = event.target["first-name"].value;
-//     const lastName = event.target["last-name"].value;
-//     // const otherName = event.target["Oname"].value;
-//     // const birthDate = event.target["bday"].value;
-//     const phoneNumber = event.target["phone"].value;
+const createNewContact = function(event){
+    event.preventDefault();
+    const firstName = event.target["first-name"].value;
+    const lastName = event.target["last-name"].value;
+    const otherName = event.target["Oname"].value;
+    const birthDate = event.target["bday"].value;
+    const phoneNumber = event.target["phone"].value;
 
-//     const newContactPerson = {
+    const newContactPerson = {
 
-//         id: contacts.length + 1,
-//         firstName: "Lokose",
-//         lastName: "Daniel",
-//         otherName: "Nyarji",
-//         birthData: 08/10/1997,
-//         phoneNumber: 0240034232,
-//         email: "ksdfkaj@gmail.com",
-//         country: "USA",
-//         city: "Minneapolis",
-//         street: 4000,
-//         state: "MN"
+        id: contacts.length + 1,
+        firstName: "Lokose",
+        lastName: "Daniel",
+        otherName: "Nyarji",
+        birthData: 08/10/1997,
+        phoneNumber: 0240034232,
+        email: "ksdfkaj@gmail.com",
+        country: "USA",
+        city: "Minneapolis",
+        street: 4000,
+        state: "MN"
 
-//     };
+    };
 
-//     // contacts.push(newContactPerson);
-//     // contactInfor.innerHTML = readContactInfor(contacts);
+    contacts.push(newContactPerson);
+    contactListHandle.innerHTML = readContacts(contacts);
 
-// }
+}
 
 
-// const contactForm = document.querySelector("#create-new-contact");
+const contactForm = document.querySelector("#create-new-contact");
 
-// contactForm.addEventListener("submit", createNewContact);
+contactForm.addEventListener("submit", createNewContact);
 
 
 // const populateContactForm = (id) => {
