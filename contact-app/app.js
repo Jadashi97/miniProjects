@@ -65,20 +65,25 @@ const createNewContact = function(event){
     const otherName = event.target["Oname"].value;
     const birthDate = event.target["bday"].value;
     const phoneNumber = event.target["phone"].value;
+    const email = event.target["email"].value;
+    const country = event.target["country"].value;
+    const city = event.target["city"].value;
+    const street = event.target["street"].value;
+    const state = event.target["state"].value;
 
     const newContactPerson = {
 
         id: contacts.length + 1,
-        firstName: "Lokose",
-        lastName: "Daniel",
-        otherName: "Nyarji",
-        birthData: 08/10/1997,
-        phoneNumber: 0240034232,
-        email: "ksdfkaj@gmail.com",
-        country: "USA",
-        city: "Minneapolis",
-        street: 4000,
-        state: "MN"
+        firstName: firstName,
+        lastName: lastName,
+        otherName: otherName,
+        birthDate: birthDate,
+        phoneNumber: phoneNumber,
+        email: email,
+        country: country,
+        city: city,
+        street: street,
+        state: state
 
     };
 
@@ -103,6 +108,6 @@ contactForm.addEventListener("submit", createNewContact);
 
 
 // document.addEventListener("DOMContentLoaded", () => {
-// 	contactInfor.innerHTML = readContactInfor(contacts);
+// 	contactListHandle.innerHTML = readContacts(contacts);
 // });
 
