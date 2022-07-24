@@ -40,7 +40,10 @@ const readContacts = (contacts, index, arr)=> {
     while(i < contacts.length){
         htmlContacts += `<p data-id= ${contacts[i].id}>${contacts[i].firstName},${contacts[i].lastName},
         ${contacts[i].otherName}, <br/>${contacts[i].birthDate}, ${contacts[i].phoneNumber}, ${contacts[i].email},<br/>
-        ${contacts[i].country}, ${contacts[i].city}, ${contacts[i].state}, ${contacts[i].street}
+        ${contacts[i].country}, ${contacts[i].city}, ${contacts[i].state}, ${contacts[i].street}\
+
+        <button onClick= "deleteContact(${contacts[i].id})">Delete</button>
+        <button onClick= "updateContact(${contacts[i].id})">Update</button>
         </p>`
 
         i++;
@@ -98,14 +101,31 @@ const contactForm = document.querySelector("#create-new-contact");
 contactForm.addEventListener("submit", createNewContact);
 
 
-// const populateContactForm = (id) => {
-//     document.getElementById("first-name").value = contacts[id].firstName;
-// 	document.getElementById("last-name").value = contacts[id].lastName;
+
+//UPDATE BTN
+const editContact = contacts.map((contact) => {
+    if (contact.id === id) {
+		console.log("edit me!!")
+	}else{
+        console.log("not found!");
+    }
+    
+});
 
 
-//     const createBtn = document.getElementById("create");
-// }
 
+//DELETE BTN done
+const deleteContact = (id) => {
+    console.log("take me off!!");
+    
+    //use the filter method to target exactly what criteria we looking for then delete that
+    newContactPerson = contacts.filter((contact) => contact.id != id);
+
+    //show in html
+
+    contacts = newContactPerson;
+    contactListHandle.innerHTML = readContacts(contacts);
+}
 
 // document.addEventListener("DOMContentLoaded", () => {
 // 	contactListHandle.innerHTML = readContacts(contacts);
