@@ -103,13 +103,16 @@ contactForm.addEventListener("submit", createNewContact);
 
 
 // //UPDATE BTN
-const editContact = (id) =>{
-    console.log("update me")
+const editContact = contacts.map((contact) =>{
+    
 
-    newContactPerson = contacts.Update((contact) => contact.id != id);
+    if(contact.id === 1){
+        console.log("update me");
+    }
+    return contact;
 
-    console.log(newList);
-}
+
+});
 
 
 
@@ -126,7 +129,10 @@ const deleteContact = (id) => {
     contactListHandle.innerHTML = readContacts(contacts);
 }
 
-// document.addEventListener("DOMContentLoaded", () => {
-// 	contactListHandle.innerHTML = readContacts(contacts);
-// });
+document.addEventListener("DOMContentLoaded", () => {
+	contactListHandle.innerHTML = readContacts(contacts);
+});
+
+//Add indexed db to our program
+
 
