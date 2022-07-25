@@ -43,7 +43,7 @@ const readContacts = (contacts, index, arr)=> {
         ${contacts[i].country}, ${contacts[i].city}, ${contacts[i].state}, ${contacts[i].street}\
 
         <button onClick= "deleteContact(${contacts[i].id})">Delete</button>
-        <button onClick= "updateContact(${contacts[i].id})">Update</button>
+        <button onClick= "editContact(${contacts[i].id})">Edit</button>
         </p>`
 
         i++;
@@ -102,15 +102,14 @@ contactForm.addEventListener("submit", createNewContact);
 
 
 
-//UPDATE BTN
-const editContact = contacts.map((contact) => {
-    if (contact.id === id) {
-		console.log("edit me!!")
-	}else{
-        console.log("not found!");
-    }
-    
-});
+// //UPDATE BTN
+const editContact = (id) =>{
+    console.log("update me")
+
+    newContactPerson = contacts.Update((contact) => contact.id != id);
+
+    console.log(newList);
+}
 
 
 
