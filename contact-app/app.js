@@ -43,7 +43,7 @@ const readContacts = (contacts, index, arr)=> {
         ${contacts[i].country}, ${contacts[i].city}, ${contacts[i].state}, ${contacts[i].street}\
 
         <button onClick= "deleteContact(${contacts[i].id})">Delete</button>
-        <button onClick= "editContact(${contacts[i].id})">Edit</button>
+        <button onClick= "populateContactFormFields(${contacts[i].id} - 1 )">edit</button>
         </p>`
 
         i++;
@@ -101,18 +101,52 @@ const contactForm = document.querySelector("#create-new-contact");
 contactForm.addEventListener("submit", createNewContact);
 
 
+//Populate formfields
+
+const populateContactFormFields = (id) => {
+	document.getElementById("first-name").value   //= contacts[id].firstName;
+	document.getElementById("last-name").value = contacts[id].lastName;
+	document.getElementById("nationality").value = contacts[id].nationality;
+
+	// switch button
+	const createBtn = document.getElementById("create");
+	const editBtn = document.getElementById("edit");
+	const editBox = document.getElementById("edit-contact");
+
+	editBox.innerHTML = `<button id="save" type="submit">Save Changes</button>`;
+
+	document.addEventListener(
+		"click",
+		function (e) {
+			if (e.target && e.target.id == "delete-todo-item") {
+
+	        }
+		},
+		false,
+	);
+};
+
+
 
 // //UPDATE BTN
-const editContact = contacts.map((contact) =>{
-    
+const editContact = (event) =>{
+    // if(button.textContent === "Edit"){
+    //     const span = li.firstElementChild;
+    //     const input = document.createElement('input')
+    //     input.type = "text";
+    //     input.value = span.textContent
+    // }
 
-    if(contact.id === 1){
-        console.log("update me");
-    }
-    return contact;
+
+    console.log(selectedContact);
+    console.log("edit me");
 
 
-});
+    // deleteContact(event);
+};
+
+
+
 
 
 
