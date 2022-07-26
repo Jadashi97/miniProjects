@@ -169,4 +169,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Add indexed db to our program
 
+const dbName = "Daniel's contacts";
 
+const request = indexedDB.open(dbName, 2);
+
+request.onerror = (event) => {
+    // Handle errors.
+};
+
+request.onupgradeneeded = (event) => {
+    const db = event.target.result;
+
+    const objectStore = db.createObjectStore("list", { keyPath: "numbers" });
+}
