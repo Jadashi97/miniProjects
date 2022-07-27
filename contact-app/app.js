@@ -167,18 +167,39 @@ document.addEventListener("DOMContentLoaded", () => {
 	contactListHandle.innerHTML = readContacts(contacts);
 });
 
-//Add indexed db to our program
+//ADD INDEXEDB TO THE CONTACT APP
 
 const dbName = "Daniel's contacts";
 
-const request = indexedDB.open(dbName, 2);
+const request = indexedDB.open(dbName, 3);
 
-request.onerror = (event) => {
-    // Handle errors.
-};
+//this handles errors
+dbName.onerror = (event) => {
+    // Generic error handler for all errors targeted at this database's
+    // requests!
+    console.error(`Database error: ${event.target.errorCode}`);
+  };
+
+
+//create objectstore to hold contact infor
 
 request.onupgradeneeded = (event) => {
     const db = event.target.result;
 
-    const objectStore = db.createObjectStore("list", { keyPath: "numbers" });
-}
+    const objectStore = db.createObjectStore("contactList", { keyPath: "id" });
+
+
+    objectStore.createIndex("firsName", "firstName", {unique: false}); //searches contacts by first name
+    objectStore.createIndex("lastName", "lastName", {unique: true}); //searches contacts by last name
+
+    //this makes sure object store creation is complete before adding any data
+
+    objectStore.transaction.oncomplete =(event) =>{
+        //store values in my contacts
+        const contactListStore = db.transaction("contactList", "readwrite").objectStore("contactList");
+        contacts.forEach(function(contact){
+            contactListStore.add(contact);
+        });
+    };
+};
+
