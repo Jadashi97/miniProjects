@@ -1,3 +1,7 @@
+body{
+    /* display: flex; */
+}
+
 h1{
     padding: 1rem;
     background-color: aqua;

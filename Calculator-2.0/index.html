@@ -9,24 +9,29 @@
 </head>
 <body>
     <h1>Calculator-2.0</h1>
-    <div id="form-result">
-        <label for="fvalue">Enter Num1:</label>
-        <input id="n1" class="num1" type="number" placeholder="num1">
+    <form id="form-result">
+        <div>
+            <label for="fvalue">Enter Num1:</label>
+            <input id="n1" class="num1" type="number" placeholder="num1">
+        </div>
         <br>
-        
-        <label for="operator">choose operator:</label>
-        <select name="operator" id="operator">
-            <option value="add">+</option>
-            <option value="subtract">-</option>
-            <option value="multiply">*</option>
-            <option value="divide">/</option>      
-        </select>
-        
+        <div>
+            <label for="operator">choose operator:</label>
+                <select name="operator" id="operator">
+                    <option value="add">+</option>
+                    <option value="subtract">-</option>
+                    <option value="multiply">*</option>
+                    <option value="divide">/</option>      
+                </select>       
+        </div>
         <br>
-        <label for="lvalue">Enter Num2:</label>
-        <input id="n2" class="num2" type="number" placeholder="num2">
+        <div>
+            <label for="lvalue">Enter Num2:</label>
+            <input id="n2" class="num2" type="number" placeholder="num2">
+        <br>
+        </div>
         <button class="btn">Submit</button>
-    </div>
+    </form>
 
     <div>
         <h3 id="calc-result">Result:</h3>
