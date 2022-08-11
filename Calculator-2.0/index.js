@@ -11,10 +11,25 @@ function processForm(event){
     let num2 = parseInt(document.getElementById("n2").value);
     let operator = document.getElementById("operator").value;
 
-    result.innerHTML = `Result: ${num1}`
-
-
+    result.innerHTML = `Result: ${computeResult(num1, num2, operator)}`
 }
+
+function computeResult(num1, operator, num2){
+    if(operator = "+"){
+        return num1 + num2;
+
+    } else if(operator = "-"){
+        return num1 - num2;
+
+    }else if(operator = "*"){
+        return num1 * num2;
+
+    }else if(operator = "/"){
+        return num1 / num2;
+    }
+}
+
+console.log("2", "+", "4");
 
 
 
