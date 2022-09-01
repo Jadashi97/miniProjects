@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ListOfContacts from "./components/ListOfContacts";
+import CreateContact from "./components/CreateContact";
 
 function App() {
 
@@ -30,13 +31,15 @@ function App() {
 
   const [contacts, setContacts] = useState(initialContacts);
   
-  // const saveContacts = (contact)=>{
-    
-  //   setContacts([
-  //     ...contacts,
-  //     contact
-  //   ])
-  // }
+  function addContact(newContact){
+    setContacts((prevContact)=>{
+      return[
+        ...prevContact,
+        newContact
+      ];
+
+    })
+  }
 
   // console.log(contacts);
 
@@ -46,6 +49,9 @@ function App() {
         contacts app 2-0
       </h1>
       <ListOfContacts contacts={contacts}/>
+      <CreateContact
+        onAdd={addContact}
+      />
     </div>
   );
 }
