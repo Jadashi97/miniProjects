@@ -48,10 +48,10 @@ function App() {
       <h1>
         contacts app 2-0
       </h1>
-      <ListOfContacts contacts={contacts}/>
       <CreateContact
         onAdd={addContact}
       />
+      <ListOfContacts contacts={contacts}/>
     </div>
   );
 }
