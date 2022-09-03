@@ -1,43 +1,32 @@
 import React, { useState } from "react";
 
-const ListOfContacts = ({contacts})=>{
 
-    const [contact, setContacts] = useState({});
+function ListOfContacts(props){
 
-    // console.log(contacts);
-    
-    //handle the delete button when clicked
-    function deleteContact(id){
-         setContacts(prevContacts => {
-            return prevContacts.filter((contactItem, index) => {
-                return index !== id;
-            })
-        })
-    }
 
     function handleClick(e){
         e.preventDefault();
 
-        console.log("clicked!!")
+        console.log("clicked!!");
 
-       deleteContact(contact);
+        props.onDelete(props.id)
+
     }
+
     
+
     return(
         <div>
-            {contacts.map(({id, name, phone, email}, index)=>(
-                <div>
-                    <p>{index}</p>
-                    {/* <p>{id}</p> */}
-                    <p>{name}</p>
-                    <p>{phone}</p>
-                    <p>{email}</p>{" "}
-                    <button onClick={handleClick}>delete</button>
-                </div>
-            ))}
+            <form action="">
+                <p>{props.index}</p>
+                <p>{props.id}</p>
+                <p>{props.name}</p>
+                <p>{props.phone}</p>
+                <p>{props.email}</p>{" "}
+                <button onClick={handleClick}>delete</button>
+            </form>
         </div>
     )
-
 }
 
 export default ListOfContacts;
