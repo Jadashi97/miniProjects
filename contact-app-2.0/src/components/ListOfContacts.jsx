@@ -7,10 +7,16 @@ function ListOfContacts(props){
     function handleClick(e){
         e.preventDefault();
 
-        console.log("clicked!!");
+        // console.log("clicked!!");
 
-        props.onDelete(props.id)
+        props.onDelete(props.id);
 
+    }
+
+    function handleEdit(e){
+        e.preventDefault();
+
+        console.log("Edit me!")
     }
 
     
@@ -24,6 +30,7 @@ function ListOfContacts(props){
                 <p>{props.phone}</p>
                 <p>{props.email}</p>{" "}
                 <button onClick={handleClick}>delete</button>
+                <button onClick={handleEdit}>Edit</button>
             </form>
         </div>
     )

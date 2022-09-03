@@ -2,31 +2,33 @@ import React, { useState } from "react";
 import ListOfContacts from "./components/ListOfContacts";
 import CreateContact from "./components/CreateContact";
 
+
+
 function App() {
 
   
   // same as how we initially set an array of objectss
-      const initialContacts = [
-        {
-          id: 1,
-          name: "kose",
-          phone: 12434232,
-          email: "dsfagd@gmail.com",
-        },
-        {
-          id: 2,
-          name: "kose",
-          phone: 12434232,
-          email: "dsfagd@gmail.com",
-        },
-        {
-          id: 3,
-          name: "kose",
-          phone: 12434232,
-          email: "dsfagd@gmail.com",
-        },
-      
-      ]
+    const initialContacts = [
+      {
+        id: 1,
+        name: "kose",
+        phone: 12434232,
+        email: "dsfagd@gmail.com",
+      },
+      {
+        id: 2,
+        name: "kose",
+        phone: 12434232,
+        email: "dsfagd@gmail.com",
+      },
+      {
+        id: 3,
+        name: "kose",
+        phone: 12434232,
+        email: "dsfagd@gmail.com",
+      },
+    
+    ]
   
 
       const [contacts, setContacts] = useState(initialContacts);
@@ -72,7 +74,7 @@ function App() {
                 name = {name}
                 phone = {phone}
                 email = {email}
-                ondelete = {deleteContact}
+                onDelete = {deleteContact}
              />
             )
           })}

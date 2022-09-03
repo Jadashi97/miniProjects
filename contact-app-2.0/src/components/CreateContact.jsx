@@ -25,7 +25,12 @@ function  CreateContact(props){
     // handling the form when it submits
     const submitContact =(event) => {
         event.preventDefault();
-        
+        // setContacts({
+        //     name: "",
+        //     phone: "",
+        //     email: "",
+        // });
+
         props.onAdd(contact);
     
     }
