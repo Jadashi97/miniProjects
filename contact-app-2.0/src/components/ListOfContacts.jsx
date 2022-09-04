@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import ReadContactDetails from "./ReadContactDetails";
 
 
 function ListOfContacts(props){
 
+    const [isDetails, setIsDetail] = useState(false);
 
     function handleClick(e){
         e.preventDefault();
