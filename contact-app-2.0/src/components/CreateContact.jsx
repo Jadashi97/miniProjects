@@ -1,22 +1,27 @@
-import React from "react";
-import { useState } from "react";
+import {React,useState} from "react";
 
 
-function  CreateContact(props){
+//click create. 
+// add new contact to set of contacts
+// show contacts on the DOM
 
-    const [contact, setContacts] = useState({
+const  CreateContact = ({saveContact}) => {
+
+    const initialFormState = {
         name: " ",
         phone: " ",
         email: " ",
-    })
+    }
+
+    const [contact, setContacts] = useState(initialFormState);
 
     // handling when a change in a form
     function handleChange(event){
         const {name, value} = event.target; // this help to grab the value of the targeted name 
 
-        setContacts((prevContacts)=>{
+        setContacts((contact)=>{
             return{
-                ...prevContacts,
+                ...contact,
                 [name]: value
             }
         })
@@ -25,13 +30,10 @@ function  CreateContact(props){
     // handling the form when it submits
     const submitContact =(event) => {
         event.preventDefault();
-        // setContacts({
-        //     name: "",
-        //     phone: "",
-        //     email: "",
-        // });
+        
+        saveContact(contact); //send to app.js 
 
-        props.onAdd(contact);
+        setContacts(initialFormState); //this clears the input form
     
     }
 

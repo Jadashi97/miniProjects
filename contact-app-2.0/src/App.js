@@ -3,6 +3,7 @@ import ListOfContacts from "./components/ListOfContacts";
 import CreateContact from "./components/CreateContact";
 
 
+
 function App() {
 
   
@@ -32,51 +33,32 @@ function App() {
 
       const [contacts, setContacts] = useState(initialContacts);
       
-      function addContact(newContact){
-        setContacts((prevContact)=>{
-          return[
-            ...prevContact,
-            newContact
-          ];
-
-        })
-      }
+      const saveContact = (contact)=> {
+        setContacts([...contacts, contact]);
+      };
 
       //handle for the delete btn
       //handle the delete button when clicked
-      function deleteContact(id){
-          setContacts(prevContacts => {
-            return prevContacts.filter((contactItem, index) => {
-                return index !== id;
-            })
-        })
-      }
+      // function deleteContact(id){
+      //     setContacts(prevContacts => {
+      //       return prevContacts.filter((contactItem, index) => {
+      //           return index !== id;
+      //       })
+      //   })
+      // }
 
 
   // console.log(contacts);
 
       return (
         <div>
-          <h1>
-            contacts app 2-0
-          </h1>
+          <h1> contacts app 2-0 </h1>
           <CreateContact
-            onAdd={addContact}
+            saveContact={saveContact}
           />
-          {contacts.map((contactItem, index)=>{
-               const {name, phone, email} = contactItem; //destructure contact to practice DRY
-            
-            return(
-              <ListOfContacts
-                key= {index}
-                id= {index}
-                name = {name}
-                phone = {phone}
-                email = {email}
-                onDelete = {deleteContact}
-             />
-            )
-          })}
+          <ListOfContacts
+            contacts= {contacts}
+          />
           
         </div>
       );

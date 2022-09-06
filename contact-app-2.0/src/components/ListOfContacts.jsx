@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import ReadContactDetails from "./ReadContactDetails";
 
 // agenda
-// - condtionally render the details when clicked
-// - click on item
-// - item should show details of the contact
+// - condtionally render the details when clicked - (done)
+// - click on item - (done)
+// - item should show details of the contact (done)
 
 
-function ListOfContacts(props){
+const ListOfContacts = ({contacts,}) => {
 
     const [isDetails, setIsDetail] = useState(false);
     const [contact, setContact] = useState({});
@@ -24,49 +24,52 @@ function ListOfContacts(props){
     }
 
 
-    function handleClick(e){
-        e.preventDefault();
+    // function handleClick(e){
+    //     e.preventDefault();
 
-        // console.log("clicked!!");
+    //     // console.log("clicked!!");
 
-        props.onDelete(props.id);
+    //     props.onDelete(props.id);
 
-    }
+    // }
 
-    function handleEdit(e){
-        e.preventDefault();
+    // function handleEdit(e){
+    //     e.preventDefault();
 
-        console.log("Edit me!")
-    }
+    //     console.log("Edit me!")
+    // }
 
     
 
     return(
         <>
+        {/* use the ternary operator to conditionally render the details of the contacts when clicked on */}
             {isDetails ? (
                 <ReadContactDetails
                     goBackToListOfContacts={goBackToListOfContacts}
                     contact={contact}
                 />
             ): (
-            
-                 <div>
-                    <form action="">
-                        <p>{props.name}</p>
-                        <p>{props.index}</p>
-                        {/* <p>{props.id}</p>
-                        <p>{props.phone}</p>
-                        <p>{props.email}</p>{" "} */}
-                        <button onClick={handleClick}>delete</button>
-                        <button onClick={handleEdit}>Edit</button>
-                    </form>
-                </div>
+                <div>
+                 
+                    <h2>List of Contacts</h2>
+                    {contacts.map(({id, name, email}, index, arr)=>(
 
+                        <div key={id}>
+                            <p>{name}</p>
+                            <button style={{cursor: "pointer"}} onClick={(e) => readDetails(e, arr[index])}>
+                                view details
+                            </button>
+                            <button >delete</button>
+                            <button >Edit</button>
+                        </div>
+                    ))}
+                
+                </div>
             )}
         
-
         </>
-    )
-}
+    );
+};
  
 export default ListOfContacts;
