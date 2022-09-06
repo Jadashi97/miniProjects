@@ -3,7 +3,6 @@ import ListOfContacts from "./components/ListOfContacts";
 import CreateContact from "./components/CreateContact";
 
 
-
 function App() {
 
   
