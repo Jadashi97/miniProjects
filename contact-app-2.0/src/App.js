@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import ListOfContacts from "./components/ListOfContacts";
 import CreateContact from "./components/CreateContact";
 
-
+// handling delete
+// - set the delete btn to each contact
+// - handle for when it is clicked
+// - write the logic to delete the contact
+// - 
 
 function App() {
 
+  const [contact, setContact] = useState([]);
   
   // same as how we initially set an array of objectss
     const initialContacts = [
@@ -31,21 +36,21 @@ function App() {
     ]
   
 
-      const [contacts, setContacts] = useState(initialContacts);
+      const [contacts, setContacts] = useState(initialContacts); //using the useState hook to manage the state
       
+      //function to manage saving contacts
       const saveContact = (contact)=> {
         setContacts([...contacts, contact]);
       };
 
       //handle for the delete btn
-      //handle the delete button when clicked
-      // function deleteContact(id){
-      //     setContacts(prevContacts => {
-      //       return prevContacts.filter((contactItem, index) => {
-      //           return index !== id;
-      //       })
-      //   })
-      // }
+      function deleteContact(id){
+          setContact(prevContacts => {
+            return prevContacts.filter((contactItems, index) => {
+                return index !== id;
+            })
+        })
+      }
 
 
   // console.log(contacts);
@@ -58,6 +63,7 @@ function App() {
           />
           <ListOfContacts
             contacts= {contacts}
+            onDelete={deleteContact}
           />
           
         </div>

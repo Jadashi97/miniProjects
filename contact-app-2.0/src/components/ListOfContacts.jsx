@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import ReadContactDetails from "./ReadContactDetails";
 
-// agenda
-// - condtionally render the details when clicked - (done)
-// - click on item - (done)
-// - item should show details of the contact (done)
 
 
-const ListOfContacts = ({contacts,}) => {
+const ListOfContacts = ({contacts}) => {
 
     const [isDetails, setIsDetail] = useState(false);
-    const [contact, setContact] = useState({});
+    const [contact, setContact] = useState([]);
+    // const [contactItems, setContactItems] = useState([]);
+
 
     const readDetails = (e, contact) => {
        
@@ -24,12 +22,22 @@ const ListOfContacts = ({contacts,}) => {
     }
 
 
+    // //handle for the delete btn
+    // function deleteContact(id){
+    //     setContact(prevContacts => {
+    //     return prevContacts.filter((contactItems, index) => {
+    //         return index !== id;
+    //     })
+    // })
+    // }
+
+
     // function handleClick(e){
     //     e.preventDefault();
 
-    //     // console.log("clicked!!");
-
-    //     props.onDelete(props.id);
+    //     // console.log(deleteContact);
+    //     // deleteContact(contact);
+    //     // props.onDelete(props.id)
 
     // }
 
@@ -60,7 +68,7 @@ const ListOfContacts = ({contacts,}) => {
                             <button style={{cursor: "pointer"}} onClick={(e) => readDetails(e, arr[index])}>
                                 view details
                             </button>
-                            <button >delete</button>
+                            <button>delete</button>
                             <button >Edit</button>
                         </div>
                     ))}
