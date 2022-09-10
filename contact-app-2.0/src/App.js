@@ -1,16 +1,31 @@
 import React, { useState } from "react";
 import ListOfContacts from "./components/ListOfContacts";
 import CreateContact from "./components/CreateContact";
+/*
+DONE 
+handling delete
+- set the delete btn to each contact
+- handle for when it is clicked
+- write the logic to delete the contact
+- pass the the the logic to each btn 
+*/
 
-// handling delete
-// - set the delete btn to each contact
-// - handle for when it is clicked
-// - write the logic to delete the contact
-// - 
+
+/*
+  - Make an edit button
+  - Make edit form
+  - Get the id/record the user has selected by clicking edit button
+  - Pre-populate edit form fields with selected record/id
+  - user makes changes
+  - save changes button
+  - show the user the edit record
+    - show the edited record
+    - show pop out successfully edited
+  */
 
 function App() {
 
-  const [contact, setContact] = useState([]);
+  const [contact, setContact] = useState(" ");
   
   // same as how we initially set an array of objectss
     const initialContacts = [
@@ -43,14 +58,22 @@ function App() {
         setContacts([...contacts, contact]);
       };
 
-      //handle for the delete btn
+      // handle for the delete btn
       function deleteContact(id){
-          setContact(prevContacts => {
-            return prevContacts.filter((contactItems, index) => {
-                return index !== id;
-            })
-        })
+
+          const removeContact = contacts.filter((contact)=>{
+            return contact.id !== id;
+          });
+
+          setContacts(removeContact);
       }
+    //   function deleteContact(id){
+    //     setContact(contacts => {
+    //     return contacts.filter((contactItems, index) => {
+    //         return index !== id;
+    //     })
+    // })
+    // }
 
 
   // console.log(contacts);

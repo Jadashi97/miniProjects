@@ -3,7 +3,7 @@ import ReadContactDetails from "./ReadContactDetails";
 
 
 
-const ListOfContacts = ({contacts}) => {
+const ListOfContacts = ({contacts, onDelete}) => {
 
     const [isDetails, setIsDetail] = useState(false);
     const [contact, setContact] = useState([]);
@@ -22,7 +22,7 @@ const ListOfContacts = ({contacts}) => {
     }
 
 
-    // //handle for the delete btn
+    //handle for the delete btn
     // function deleteContact(id){
     //     setContact(prevContacts => {
     //     return prevContacts.filter((contactItems, index) => {
@@ -32,11 +32,13 @@ const ListOfContacts = ({contacts}) => {
     // }
 
 
+
+
     // function handleClick(e){
     //     e.preventDefault();
 
     //     // console.log(deleteContact);
-    //     // deleteContact(contact);
+    //     deleteContact(contact);
     //     // props.onDelete(props.id)
 
     // }
@@ -68,7 +70,7 @@ const ListOfContacts = ({contacts}) => {
                             <button style={{cursor: "pointer"}} onClick={(e) => readDetails(e, arr[index])}>
                                 view details
                             </button>
-                            <button>delete</button>
+                            <button onClick={()=> onDelete(contact.id)}>delete</button>
                             <button >Edit</button>
                         </div>
                     ))}
