@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ListOfContacts from "./components/ListOfContacts";
 import CreateContact from "./components/CreateContact";
+import EditContact from "./components/EditForm";
 /*
 DONE 
 handling delete
@@ -53,6 +54,10 @@ function App() {
 
       const [contacts, setContacts] = useState(initialContacts); //using the useState hook to manage the state
       
+      const [initialEditContact, setInitialEditContact] = useState({});
+
+      const [isEditing, setIsEditing] = useState(false);
+
       //function to manage saving contacts
       const saveContact = (contact)=> {
         setContacts([...contacts, contact]);
@@ -67,26 +72,46 @@ function App() {
 
           setContacts(removeContact);
       }
-    //   function deleteContact(id){
-    //     setContact(contacts => {
-    //     return contacts.filter((contactItems, index) => {
-    //         return index !== id;
-    //     })
-    // })
-    // }
 
 
-  // console.log(contacts);
+      //handling the edit contact
+      // get the id of contact when clicked
+      const editContact = (editingContact)=>{
+
+        contacts.map(
+          (contact) => (contact.id = editingContact.id ? editContact : contact),
+        );
+      };
+
+      // pre-populate the edit form with the selected edit contact form
+      const prepopulateEditForm = (contact)=>{
+        console.log("prepopulate form");
+        console.log(contact);
+
+        setInitialEditContact(contact);
+      }
+
+
+    // console.log(contacts);
 
       return (
         <div>
           <h1> contacts app 2-0 </h1>
-          <CreateContact
+          {isEditing ? (
+            <EditContact
+              editContact={editContact}
+              initialEditContact={initialEditContact}
+            />
+          ) :(
+            <CreateContact
             saveContact={saveContact}
           />
+          )}
           <ListOfContacts
             contacts= {contacts}
             onDelete={deleteContact}
+            prepopulateEditForm={prepopulateEditForm}
+            setIsEditing={setIsEditing}
           />
           
         </div>

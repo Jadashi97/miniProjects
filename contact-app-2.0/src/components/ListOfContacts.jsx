@@ -3,7 +3,7 @@ import ReadContactDetails from "./ReadContactDetails";
 
 
 
-const ListOfContacts = ({contacts, onDelete}) => {
+const ListOfContacts = ({contacts, onDelete, setIsEditing, prepopulateEditForm}) => {
 
     const [isDetails, setIsDetail] = useState(false);
     const [contact, setContact] = useState([]);
@@ -22,32 +22,13 @@ const ListOfContacts = ({contacts, onDelete}) => {
     }
 
 
-    //handle for the delete btn
-    // function deleteContact(id){
-    //     setContact(prevContacts => {
-    //     return prevContacts.filter((contactItems, index) => {
-    //         return index !== id;
-    //     })
-    // })
-    // }
+    // handling the EditMode
 
+    const handleEditMode = (e, contact)=>{
+        setIsEditing(true);
 
-
-
-    // function handleClick(e){
-    //     e.preventDefault();
-
-    //     // console.log(deleteContact);
-    //     deleteContact(contact);
-    //     // props.onDelete(props.id)
-
-    // }
-
-    // function handleEdit(e){
-    //     e.preventDefault();
-
-    //     console.log("Edit me!")
-    // }
+        prepopulateEditForm(contact);
+    }
 
     
 
@@ -71,7 +52,7 @@ const ListOfContacts = ({contacts, onDelete}) => {
                                 view details
                             </button>
                             <button onClick={()=> onDelete(contact.id)}>delete</button>
-                            <button >Edit</button>
+                            <button onClick={(e) => handleEditMode(e, arr[index])}>Edit</button>
                         </div>
                     ))}
                 
