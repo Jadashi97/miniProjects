@@ -44,9 +44,10 @@ const ListOfContacts = ({contacts, onDelete, setIsEditing, prepopulateEditForm})
                 <div>
                  
                     <h2>List of Contacts</h2>
-                    {contacts.map(({id, name, email}, index, arr)=>(
+                    {contacts.map(({id, name}, index, arr)=>(
 
-                        <div key={id}>
+                        <div key={index}>
+                            <p>{id}</p>
                             <p>{name}</p>
                             <button style={{cursor: "pointer"}} onClick={(e) => readDetails(e, arr[index])}>
                                 view details

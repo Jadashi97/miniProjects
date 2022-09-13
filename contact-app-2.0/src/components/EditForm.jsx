@@ -65,6 +65,7 @@ const  EditContact = ({initialEditContact, editContact}) => {
                  /> 
 
                 <button onClick={submitContact}>save changes</button> 
+                <button>cancel</button>
             </form>  
         </div>)
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ListOfContacts from "./components/ListOfContacts";
 import CreateContact from "./components/CreateContact";
 import EditContact from "./components/EditForm";
@@ -58,6 +58,12 @@ function App() {
 
       const [isEditing, setIsEditing] = useState(false);
 
+      //useEffect to run once the component mounts
+
+      useEffect(()=> { //use the IIFE
+        localStorage.setItem("contacts", JSON.stringify(contacts)); 
+      }, [contacts]);
+
       //function to manage saving contacts
       const saveContact = (contact)=> {
         setContacts([...contacts, contact]);
@@ -78,15 +84,17 @@ function App() {
       // get the id of contact when clicked
       const editContact = (editingContact)=>{
 
-        contacts.map(
-          (contact) => (contact.id = editingContact.id ? editContact : contact),
+        const myContacts = contacts.map(
+          (contact) => (contact.id === editingContact.id ? editingContact : contact)
         );
+
+        setContacts(myContacts);
       };
 
       // pre-populate the edit form with the selected edit contact form
       const prepopulateEditForm = (contact)=>{
-        console.log("prepopulate form");
-        console.log(contact);
+        // console.log("prepopulate form");
+        // console.log(contact);
 
         setInitialEditContact(contact);
       }
