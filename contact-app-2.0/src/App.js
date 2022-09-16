@@ -7,35 +7,35 @@ import ContactItem from "./components/ContactItem";
 
 function App() {
   // same as how we initially set an array of objectss
-  // const initialContacts = [
-  //     {
-  //         id: 1,
-  //         name: "kose",
-  //         phone: 12434232,
-  //         email: "dsfagd@gmail.com",
-  //       },
-  //       {
-  //           id: 2,
-  //           name: "kose",
-  //           phone: 12434232,
-  //           email: "dsfagd@gmail.com",
-  //         },
-  //         {
-  //             id: 3,
-  //             name: "kose",
-  //             phone: 12434232,
-  //             email: "dsfagd@gmail.com",
-  //           },
+      const initialContacts = [
+          {
+              id: 1,
+              name: "kose",
+              phone: 12434232,
+              email: "dsfagd@gmail.com",
+            },
+            {
+                id: 2,
+                name: "kose",
+                phone: 12434232,
+                email: "dsfagd@gmail.com",
+              },
+              {
+                  id: 3,
+                  name: "kose",
+                  phone: 12434232,
+                  email: "dsfagd@gmail.com",
+                },
+              
+      ]
           
-  //         ]
-          
-  //     const [contacts, setContacts] = useState(initialContacts); //using the useState hook to manage the state
+      const [contacts, setContacts] = useState(initialContacts); //using the useState hook to manage the state
       
 
       // this is way to save the contacts to local storage
       // helps when we refresh the page we wil still have the created contacts
 
-      const [contacts, setContacts] = useState(()=>{
+      const [contactitems, setContactsItems] = useState(()=>{
         const saveContacts = localStorage.getItem("contacts");
         if(saveContacts){
           return JSON.parse(saveContacts);
@@ -64,15 +64,14 @@ function App() {
 
       // handling when a change in a form
       function handleAddFormSubmit(event){
-            event.preventDefault();
+            console.log("clicked!!")
 
-            // if (contact !== " "){
+            event.preventDefault();
+            // const {name, value} = event.target;
+            // if (contact !== "") {
             //   setContacts([
             //     ...contacts,
-            //     // {
-            //     //   id: new Date(),
-            //     //   value: contact.trim()
-            //     // }
+            //     ([name]), value
             //   ]);
             // }
             
@@ -145,7 +144,7 @@ function App() {
           )}
           {/* <ListOfContacts
             contacts= {contacts}
-            onDelete={deleteContact}
+            // onDelete={deleteContact}
             prepopulateEditForm={prepopulateEditForm}
             setIsEditing={setIsEditing}
           /> */}
