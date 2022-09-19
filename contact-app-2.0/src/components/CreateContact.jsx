@@ -38,13 +38,14 @@ const  CreateContact = ({saveContact}) => {
     }
 
     
-    const {name, phone, email} = contact; //destructure contact to practice DRY
+    const {id,name, phone, email} = contact; //destructure contact to practice DRY
 
     return(
         <div>
             <h3>Create Contact</h3>
-            <form action="">
-                <input 
+            <form>
+                <input
+                    key={id}
                     type="text" 
                     onChange={handleChange} 
                     value={name} 
@@ -52,6 +53,7 @@ const  CreateContact = ({saveContact}) => {
                     placeholder="name"
                 />
                 <input
+                    key={id}
                     type="tel" 
                     onChange={handleChange} 
                     value={phone} 
@@ -59,6 +61,7 @@ const  CreateContact = ({saveContact}) => {
                     placeholder="phone"/>
 
                 <input 
+                    key={id}
                     type="text"
                     onChange={handleChange} 
                     value={email} 

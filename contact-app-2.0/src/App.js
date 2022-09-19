@@ -25,8 +25,6 @@ handling delete
   */
 
 function App() {
-
-  const [contact, setContact] = useState(" ");
   
   // same as how we initially set an array of objectss
     const initialContacts = [
@@ -58,19 +56,22 @@ function App() {
 
       const [isEditing, setIsEditing] = useState(false);
 
+      const [savedContacts, setSavingContacts] = useState([]);
       //useEffect to run once the component mounts
 
       useEffect(()=> { //use the IIFE
-        localStorage.setItem("contacts", JSON.stringify(contacts)); 
-      }, [contacts]);
+        localStorage.setItem("savedContacts", JSON.stringify(savedContacts)); 
+      }, [savedContacts]);
 
+      // console.log(contacts);
       //function to manage saving contacts
       const saveContact = (contact)=> {
         setContacts([...contacts, contact]);
       };
 
       // handle for the delete btn
-      function deleteContact(id){
+      const deleteContact = (id)=> {
+        
 
         const removeContact = contacts.filter((contact)=>{
           return contact.id !== id;
