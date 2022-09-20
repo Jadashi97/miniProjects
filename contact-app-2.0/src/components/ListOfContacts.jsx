@@ -44,7 +44,7 @@ const ListOfContacts = ({contacts, onDelete, setIsEditing, prepopulateEditForm})
                 <div>
                  
                     <h2>List of Contacts</h2>
-                    {contacts.map(({id,name},index, arr)=>(
+                    {contacts.map(({id,name,email},index, arr)=>(
 
                         <div key={index}>
                             <p>{id}</p>

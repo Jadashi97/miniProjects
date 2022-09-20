@@ -1,9 +1,9 @@
 const ReadContactDetails = (props) => {
 
-    const {id, name,phone, email, index} = props.contact;
+    const {id, name,phone, email} = props.contact;
 
     return(
-        <div key={index}>
+        <div>
             <h1>Contact Details</h1>
             <p>{id}</p>
             <p>{name}</p>

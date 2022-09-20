@@ -8,6 +8,7 @@ import {React,useState} from "react";
 const  CreateContact = ({saveContact}) => {
 
     const initialFormState = {
+        id: "",
         name: " ",
         phone: " ",
         email: " ",
@@ -38,14 +39,13 @@ const  CreateContact = ({saveContact}) => {
     }
 
     
-    const {id,name, phone, email} = contact; //destructure contact to practice DRY
+    const {id, name, phone, email} = contact; //destructure contact to practice DRY
 
     return(
-        <div>
+        <div key={id}>
             <h3>Create Contact</h3>
-            <form>
+            <form onSubmit={submitContact}>
                 <input
-                    key={id}
                     type="text" 
                     onChange={handleChange} 
                     value={name} 
@@ -53,7 +53,6 @@ const  CreateContact = ({saveContact}) => {
                     placeholder="name"
                 />
                 <input
-                    key={id}
                     type="tel" 
                     onChange={handleChange} 
                     value={phone} 
@@ -61,15 +60,14 @@ const  CreateContact = ({saveContact}) => {
                     placeholder="phone"/>
 
                 <input 
-                    key={id}
-                    type="text"
+                    type="email"
                     onChange={handleChange} 
                     value={email} 
                     name="email" 
                     placeholder="email"
                  /> 
 
-                <button onClick={submitContact}>Create</button> 
+                <button type="submit">Create</button> 
             </form>  
         </div>)
 

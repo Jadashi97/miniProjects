@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {React, useState} from "react";
 
 
@@ -9,9 +10,11 @@ const  EditContact = ({initialEditContact, editContact}) => {
         email: " ",
     };
 
-    const [contact, setContacts] = useState(
-        initialEditContact ||initialFormState
-    );
+    const [contact, setContacts] = useState(initialFormState);
+
+    useEffect(() =>{
+        setContacts(initialEditContact)
+    }, [initialEditContact]);
 
     // handling when a change in a form
     function handleChange(event){
@@ -41,7 +44,7 @@ const  EditContact = ({initialEditContact, editContact}) => {
     return(
         <div>
             <h3>Edit Contact</h3>
-            <form action="">
+            <form onSubmit={submitContact}>
                 <input 
                     type="text" 
                     onChange={handleChange} 
@@ -64,7 +67,7 @@ const  EditContact = ({initialEditContact, editContact}) => {
                     placeholder="email"
                  /> 
 
-                <button onClick={submitContact}>save changes</button> 
+                <button type="submit">save changes</button> 
                 <button>cancel</button>
             </form>  
         </div>)
