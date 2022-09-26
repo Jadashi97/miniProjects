@@ -86,6 +86,10 @@
       "category": "hiking gear",
       "price": 4000,
       "description": "This is description about product 25"
+    },
+    {
+      "title": "Product 1",
+      "id": 26
     }
   ],
   "reviews": [

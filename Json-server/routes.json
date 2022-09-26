@@ -1,4 +1,5 @@
+
 {
     "/api/v1/*": "/$1",
     "/products/:category": "/products?category=:category"
-  }
+}
