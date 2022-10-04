@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Api</title>
+</head>
+
+<body>
+    <button id="grabText">Grab the text</button>
+    <button id="grabUsers">Grab the Users</button>
+    <hr>
+    <div id="output"></div>
+
+    <script>
+        document.getElementById("grabText").addEventListener("click", getTheText);
+        document.getElementById("grabUsers").addEventListener("click", getUsers);
+
+        function getTheText() {
+            // fetch("sample.txt")
+            //     .then(function (res) {
+            //         return res.text()
+            //     })
+            //     //this turns the text value into data that is passed to the browser
+            //     .then(function (data) {
+            //         console.log(data);
+            //     });
+
+            // from a high level, it goes to the sample.text and returns the text there
+            fetch("sample.txt")
+                .then((res) => {
+                    return res.text()
+                })
+                .then((data) => {
+                    document.getElementById("output").innerHTML = data;
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        }
+
+        //use this to get json data that is needed and that we have
+        function getUsers() {
+            fetch("users.json")
+                .then((res) => {
+                    return res.json()
+                })
+                .then((data) => {
+                    let output = '<p>Users<p>';
+                    // console.log(data)
+                    data.forEach(function (user) {
+                        output += `
+                        <ul>
+                            <li>ID: ${user.id}</li>
+                            <li>NAME: ${user.fname}</li>
+                            <li>AGE:${user.age}</li>                        
+                        </ul>
+                        `
+                    });
+
+                    document.getElementById("output").innerHTML = output;
+                })
+        }
+    </script>
+</body>
+
+</html>
