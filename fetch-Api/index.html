@@ -6,17 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fetch Api</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 
 <body>
-    <button id="grabText">Grab the text</button>
-    <button id="grabUsers">Grab the Users</button>
-    <hr>
-    <div id="output"></div>
+    <div class="container">
+        <h1 class="diplay-4 mb-4">Learning Fetch Api</h1>
+        <div class="d-flex">
+            <button class="btn btn-primary ms-1" id="getText">Grab the text</button>
+            <button class="btn btn-info mr-4" id="getUsers">Grab the Users</button>
+            <button class="btn btn-success mr-4" id="getPosts">Grab Api Data</button>
+        </div>
+        <hr>
+        <div id="output"></div>
+        <hr>
+        <form id="addPost">
+            <div>
+                <input id="title" type="text" placeholder="Title">
+            </div>
+            <div>
+                <textarea id="body" cols="30" rows="10" placeholder="Body"></textarea>
+            </div>
+            <input type="submit" value="submit">
+        </form>
+    </div>
 
     <script>
-        document.getElementById("grabText").addEventListener("click", getTheText);
-        document.getElementById("grabUsers").addEventListener("click", getUsers);
+        document.getElementById("getText").addEventListener("click", getTheText);
+        document.getElementById("getUsers").addEventListener("click", getUsers);
+        document.getElementById("getPosts").addEventListener("click", getThePosts);
+        document.getElementById("addPost").addEventListener("submit", addPost);
 
         function getTheText() {
             // fetch("sample.txt")
@@ -48,9 +68,9 @@
                     return res.json()
                 })
                 .then((data) => {
-                    let output = '<p>Users<p>';
+                    let output = '<h2>Users</h2>';
                     // console.log(data)
-                    data.forEach(function (user) {
+                    data.forEach((user) => {
                         output += `
                         <ul>
                             <li>ID: ${user.id}</li>
@@ -62,6 +82,51 @@
 
                     document.getElementById("output").innerHTML = output;
                 })
+        }
+
+        //this handles for getting the posts
+        function getThePosts() {
+            fetch("https://jsonplaceholder.typicode.com/posts") //this fetches the data from the jsonplaceholder
+                .then((res) => {
+                    return res.json()
+                })
+                .then((data) => {
+                    let output = "<h2>Posts</h2>";
+                    // console.log(data);
+                    //loop thru the data and for each render the output
+                    data.forEach((post) => {
+                        output += `
+                        <div>
+                           <h3>${post.title}</h3> 
+                           <p>${post.body}</p> 
+                        </div>                      
+                    `;
+                    })
+                    // console.log(output);
+                    document.getElementById("output").innerHTML = output; //replaces the out in the innerHtml
+                })
+        }
+
+        //Creating a post
+
+        function addPost(e) {
+            e.preventDefault()
+
+            let title = document.getElementById("title").value;
+            let body = document.getElementById("body").value;
+
+            fetch("https://jsonplaceholder.typicode.com/posts", {
+                method: "Post",
+                headers: {
+                    "Accept": "application/json, text/plain, */* ",
+                    "Content-type": "applicatio/json"
+                },
+                body: JSON.stringify({ title: title, body: body }),
+
+            })
+                .then((res) => res.json())
+                .then((data) => console.log(data));
+
         }
     </script>
 </body>
