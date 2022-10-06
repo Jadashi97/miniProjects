@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Fetch Api</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -14,21 +15,21 @@
     <div class="container">
         <h1 class="diplay-4 mb-4">Learning Fetch Api</h1>
         <div class="d-flex">
-            <button class="btn btn-primary ms-1" id="getText">Grab the text</button>
-            <button class="btn btn-info mr-4" id="getUsers">Grab the Users</button>
-            <button class="btn btn-success mr-4" id="getPosts">Grab Api Data</button>
+            <button class="mr-2 btn btn-primary" id="getText">Grab the text</button>
+            <button class="btn btn-info" id="getUsers">Grab the Users</button>
+            <button class="btn btn-success" id="getPosts">Grab Api Data</button>
         </div>
         <hr>
         <div id="output"></div>
         <hr>
         <form id="addPost">
             <div>
-                <input id="title" type="text" placeholder="Title">
+                <input id="title" type="text" placeholder="Title" class="mb-4 form-control">
             </div>
             <div>
-                <textarea id="body" cols="30" rows="10" placeholder="Body"></textarea>
+                <textarea class="mb-4 form-control" id="body" cols="30" rows="10" placeholder="Body"></textarea>
             </div>
-            <input type="submit" value="submit">
+            <input class="btn btn-success" type="submit" value="submit">
         </form>
     </div>
 
@@ -68,14 +69,15 @@
                     return res.json()
                 })
                 .then((data) => {
-                    let output = '<h2>Users</h2>';
+                    let output = '<h2 class="mb-4">Users</h2>';
                     // console.log(data)
                     data.forEach((user) => {
+
                         output += `
-                        <ul>
-                            <li>ID: ${user.id}</li>
-                            <li>NAME: ${user.fname}</li>
-                            <li>AGE:${user.age}</li>                        
+                        <ul class="list-group mb-4">
+                            <li class="list-group-item">ID: ${user.id}</li>
+                            <li class="list-group-item" >NAME: ${user.fname}</li>
+                            <li class="list-group-item" >AGE:${user.age}</li>                        
                         </ul>
                         `
                     });
@@ -91,14 +93,14 @@
                     return res.json()
                 })
                 .then((data) => {
-                    let output = "<h2>Posts</h2>";
+                    let output = "<h2 class='mb-4'>Posts</h2>";
                     // console.log(data);
                     //loop thru the data and for each render the output
                     data.forEach((post) => {
                         output += `
-                        <div>
-                           <h3>${post.title}</h3> 
-                           <p>${post.body}</p> 
+                        <div class="card card-body mb-3">
+                            <h3>${post.title}</h3> 
+                            <p>${post.body}</p> 
                         </div>                      
                     `;
                     })
