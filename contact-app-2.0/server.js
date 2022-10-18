@@ -3,16 +3,23 @@
 // connect to mongodb
 // use postman to test backend
 
-
 const express = require('express');
 const dotenv = require('dotenv');
 
-const app = express()
-const PORT = process.env.PORT || 6000
+const contacts = require('./routes/contacts');
 
-app.get('/api', (req, res) => {
-  res.json({message: "Hello from the server!"})
-})
+const app = express();
 
-app.listen(PORT,  console.log(`seerver listening in ${process.env.NODE_ENV} port ${PORT}`)
+app.use(express.json()); //is an express middleware in express. parses incoming JSON requests, puts parsed in req.body
+
+
+// app.get('/', (req, res) => {
+//   res.send({message: "Hello from the server!"})
+// })
+
+app.use('/api/v1/contacts', contacts); //this sets up our route
+
+const PORT = process.env.PORT || 4000
+
+app.listen(PORT,  console.log(`server listening in ${process.env.NODE_ENV} port ${PORT}`)
 )
