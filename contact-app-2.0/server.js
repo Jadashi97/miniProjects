@@ -1,10 +1,11 @@
-// download dependecies
-// create the db
-// connect to mongodb
-// use postman to test backend
-
 const express = require('express');
 const dotenv = require('dotenv');
+const colors = require('colors'); //just for the colors in the terminal
+const connectDB = require('./config/db');
+
+dotenv.config({ path: './config/config.env'});
+
+connectDB();
 
 const contacts = require('./routes/contacts');
 
@@ -21,5 +22,5 @@ app.use('/api/v1/contacts', contacts); //this sets up our route
 
 const PORT = process.env.PORT || 4000
 
-app.listen(PORT,  console.log(`server listening in ${process.env.NODE_ENV} port ${PORT}`)
+app.listen(PORT,  console.log(`server listening in ${process.env.NODE_ENV} port ${PORT}`.yellow.bold)
 )

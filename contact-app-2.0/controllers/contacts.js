@@ -1,4 +1,3 @@
-const Contacts = require('../models/Contacts');
 const Contact = require('../models/Contacts'); //it grabs the schema models set up in models
 
 // @des Get all contacts
@@ -24,7 +23,7 @@ exports.getContacts = async (req, res, next) => {
     }
 }
 
-//@desc Add all transactions
+//@desc Add all contacts
 //@route POST /api/v1/contacts
 //@access Public
 

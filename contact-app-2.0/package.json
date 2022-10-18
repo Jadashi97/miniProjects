@@ -9,6 +9,7 @@
     "body-parser": "^1.20.0",
     "bytes": "^3.1.2",
     "call-bind": "^1.0.2",
+    "colors": "^1.4.0",
     "content-disposition": "^0.5.4",
     "content-type": "^1.0.4",
     "cookie": "^0.5.0",
@@ -68,7 +69,6 @@
     "start": "node server.js",
     "server": "nodemon server",
     "client": "npm start --prefix client"
-
   },
   "author": "jadashi97",
   "license": "MIT"
