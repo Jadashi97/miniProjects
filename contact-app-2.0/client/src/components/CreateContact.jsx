@@ -1,4 +1,5 @@
-import {React,useState} from "react";
+import {React,useState, useEffect} from "react";
+import axios from "axios";
 
 
 //click create. 
@@ -16,6 +17,7 @@ const  CreateContact = ({saveContact}) => {
 
     const [contact, setContacts] = useState(initialFormState);
 
+
     // handling when a change in a form
     function handleChange(event){
         const {name, value} = event.target; // this help to grab the value of the targeted name 
@@ -31,7 +33,7 @@ const  CreateContact = ({saveContact}) => {
     // handling the form when it submits
     const submitContact =(event) => {
         event.preventDefault();
-        
+
         saveContact(contact); //send to app.js 
 
         setContacts(initialFormState); //this clears the input form

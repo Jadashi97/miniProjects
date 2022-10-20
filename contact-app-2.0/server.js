@@ -17,6 +17,14 @@ app.use(express.json()); //is an express middleware in express. parses incoming 
 // app.get('/', (req, res) => {
 //   res.send({message: "Hello from the server!"})
 // })
+const cors = require('cors');
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
+
 
 app.use('/api/v1/contacts', contacts); //this sets up our route
 

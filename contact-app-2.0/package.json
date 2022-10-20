@@ -68,7 +68,8 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server",
-    "client": "npm start --prefix client"
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "jadashi97",
   "license": "MIT"

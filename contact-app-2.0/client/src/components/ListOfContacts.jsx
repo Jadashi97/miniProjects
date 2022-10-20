@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReadContactDetails from "./ReadContactDetails";
+import axios from "axios";
+// import { useEffect } from "react";
+
+const baseURL = "/api/v1/contacts"
 
 
 
@@ -9,6 +13,7 @@ const ListOfContacts = ({contacts, onDelete, setIsEditing, prepopulateEditForm})
     const [contact, setContact] = useState([]);
     // const [contactItems, setContactItems] = useState([]);
 
+    
 
     const readDetails = (e, contact) => {
        
@@ -30,7 +35,13 @@ const ListOfContacts = ({contacts, onDelete, setIsEditing, prepopulateEditForm})
         prepopulateEditForm(contact);
     }
 
-    
+    useEffect(() => {
+        axios.get(baseURL).then((response) => {
+          setContact(response.data);
+        });
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return(
         <>

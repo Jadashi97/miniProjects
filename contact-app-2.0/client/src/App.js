@@ -5,6 +5,7 @@ import EditContact from "./components/EditForm";
 import Header from "./components/Header";
 import './index.css';
 
+
 function App() {
   
   // same as how we initially set an array of objectss
@@ -39,10 +40,6 @@ function App() {
 
       const [savedContacts, setSavingContacts] = useState([]);
       //useEffect to run once the component mounts
-
-      useEffect(()=> { //use the IIFE
-        localStorage.setItem("savedContacts", JSON.stringify(savedContacts)); 
-      }, [savedContacts]);
 
       // console.log(contacts);
       //function to manage saving contacts
