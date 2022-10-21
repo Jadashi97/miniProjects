@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ListOfContacts from "./components/ListOfContacts";
-import CreateContact from "./components/CreateContact";
-import EditContact from "./components/EditForm";
+// import CreateContact from "./components/CreateContact";
+// import EditContact from "./components/EditForm";
 import Header from "./components/Header";
 import './index.css';
 // import axios from "axios";
@@ -15,36 +15,36 @@ import { GlobalProvider } from "./context/GlobalState";
 function App() {
   
   // same as how we initially set an array of objectss
-    const initialContacts = [
-      {
-        id: 1,
-        name: "kose",
-        phone: 12434232,
-        email: "dsfagd@gmail.com",
-      },
-      {
-        id: 2,
-        name: "kose",
-        phone: 12434232,
-        email: "dsfagd@gmail.com",
-      },
-      {
-        id: 3,
-        name: "kose",
-        phone: 12434232,
-        email: "dsfagd@gmail.com",
-      },
+    // const initialContacts = [
+    //   {
+    //     id: 1,
+    //     name: "kose",
+    //     phone: 12434232,
+    //     email: "dsfagd@gmail.com",
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "kose",
+    //     phone: 12434232,
+    //     email: "dsfagd@gmail.com",
+    //   },
+    //   {
+    //     id: 3,
+    //     name: "kose",
+    //     phone: 12434232,
+    //     email: "dsfagd@gmail.com",
+    //   },
     
-    ]
+    // ]
   
 
-      const [contacts, setContacts] = useState(initialContacts); //using the useState hook to manage the state
+      // const [contacts, setContacts] = useState(initialContacts); //using the useState hook to manage the state
       
-      const [initialEditContact, setInitialEditContact] = useState({});
+      // const [initialEditContact, setInitialEditContact] = useState({});
 
-      const [isEditing, setIsEditing] = useState(false);
+      // const [isEditing, setIsEditing] = useState(false);
 
-      const [savedContacts, setSavingContacts] = useState([]);
+      // const [savedContacts, setSavingContacts] = useState([]);
       
       // useEffect(() => {
       //   axios.get(baseURL).then((response) => {
@@ -58,41 +58,41 @@ function App() {
 
       // console.log(contacts);
       //function to manage saving contacts
-      const saveContact = (contact)=> {
-        setContacts([...contacts, contact]);
-      };
+      // const saveContact = (contact)=> {
+      //   setContacts([...contacts, contact]);
+      // };
 
       // handle for the delete btn
-      const deleteContact = (id)=> {
+      // const deleteContact = (id)=> {
         
 
-        const removeContact = contacts.filter((contact)=>{
-          return contact.id !== id;
-        });
+      //   const removeContact = contacts.filter((contact)=>{
+      //     return contact.id !== id;
+      //   });
 
-        setContacts(removeContact);
+      //   setContacts(removeContact);
 
-      }
+      // }
 
 
       //handling the edit contact
       // get the id of contact when clicked
-      const editContact = (editingContact)=>{
+      // const editContact = (editingContact)=>{
 
-        const myContacts = contacts.map(
-          (contact) => (contact.id === editingContact.id ? editingContact : contact)
-        );
+      //   const myContacts = contacts.map(
+      //     (contact) => (contact.id === editingContact.id ? editingContact : contact)
+      //   );
 
-        setContacts(myContacts);
-      };
+      //   setContacts(myContacts);
+      // };
 
-      // pre-populate the edit form with the selected edit contact form
-      const prepopulateEditForm = (contact)=>{
-        // console.log("prepopulate form");
-        // console.log(contact);
+      // // pre-populate the edit form with the selected edit contact form
+      // const prepopulateEditForm = (contact)=>{
+      //   // console.log("prepopulate form");
+      //   // console.log(contact);
 
-        setInitialEditContact(contact);
-      }
+      //   setInitialEditContact(contact);
+      // }
 
 
     // console.log(contacts);
@@ -101,7 +101,8 @@ function App() {
       <GlobalProvider>
         <div className="container">
           <Header/>
-          {isEditing ? (
+          <ListOfContacts/>
+          {/* {isEditing ? (
             <EditContact
               editContact={editContact}
               initialEditContact={initialEditContact}
@@ -116,7 +117,7 @@ function App() {
             onDelete={deleteContact}
             prepopulateEditForm={prepopulateEditForm}
             setIsEditing={setIsEditing}
-          />
+          /> */}
           
         </div>
         </GlobalProvider>

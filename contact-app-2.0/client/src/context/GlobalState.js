@@ -48,7 +48,7 @@ export const GlobalProvider = ({children}) => {
         getContacts
     }}
     
-    
+        
     >
         {children}
     </GlobalContext.Provider>)

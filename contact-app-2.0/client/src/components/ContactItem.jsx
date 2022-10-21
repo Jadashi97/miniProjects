@@ -1,22 +1,18 @@
+import React,{useContext} from "react";
+import { GlobalContext } from "../context/GlobalState";
 
+export default function ContactItem({contact}) {
 
-export default function ContactItem({
-    //pass the contact as a prop
-    contact,
+    const {deleteContact} = useContext(GlobalContext);
 
-    onEditClick,
-
-    onDeleteClick,
-
-}) {
     return (
-       <li key={contact.id}>
-            {contact.id}{" "} <br />
-            {contact.name}{" "}<br />
+       <li>
+            {contact.text}{" "} <br />
             {contact.phone}{" "}<br />
-            {contact.email}{" "}<br />
-            <button onClick={(e) => onEditClick(contact)}>Edit</button>
-            <button onClick={()=> onDeleteClick(contact.id)}>delete</button>
+            {contact.email}{" "}<br /> 
+            {/* {contact.name}{" "}<br />
+            {/* <button onClick={(e) => onEditClick(contact)}>Edit</button> */}
+            <button onClick={()=> deleteContact(contact.id)}>delete</button>
         </li>
     );
 }

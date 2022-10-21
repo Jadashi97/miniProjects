@@ -1,39 +1,53 @@
-import React, { useState, useEffect } from "react";
-import ReadContactDetails from "./ReadContactDetails";
-// import { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
+import ContactItem from "./ContactItem";
+// import ReadContactDetails from "./ReadContactDetails";
+import { GlobalContext } from "../context/GlobalState";
 
 
 
-const ListOfContacts = ({saveContact, onDelete, setIsEditing, prepopulateEditForm}) => {
+function ListOfContacts() {
 
-    const [isDetails, setIsDetail] = useState(false);
-    const [contact, setContact] = useState([]);
+    const {contacts, getContacts} = useContext(GlobalContext);
+
+    console.log(contacts);
+
+    useEffect(()=>{
+        getContacts();
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    // const [isDetails, setIsDetail] = useState(false);
+    // const [contact, setContact] = useState([]);
     // const [contactItems, setContactItems] = useState([]);
     
 
-    const readDetails = (e, contact) => {
+    // const readDetails = (e, contact) => {
        
-        setIsDetail(true);
-        setContact(contact);
-    }
+    //     setIsDetail(true);
+    //     setContact(contact);
+    // }
 
-    const goBackToListOfContacts = ()=>{
+    // const goBackToListOfContacts = ()=>{
         
-        setIsDetail(false);
-    }
+    //     setIsDetail(false);
+    // }
 
 
     // handling the EditMode
 
-    const handleEditMode = (e, contact)=>{
-        setIsEditing(true);
+    // const handleEditMode = (e, contact)=>{
+    //     setIsEditing(true);
 
-        prepopulateEditForm(contact);
-    }
+    //     prepopulateEditForm(contact);
+    // }
 
     return(
         <>
-        {/* use the ternary operator to conditionally render the details of the contacts when clicked on */}
+            <h2>List of Contacts</h2>
+                    {contacts.map((contact)=> (<ContactItem key={contact.id} contact={contact}/>))}
+
+        {/* use the ternary operator to conditionally render the details of the contacts when clicked on
             {isDetails ? (
                 <ReadContactDetails
                     goBackToListOfContacts={goBackToListOfContacts}
@@ -44,7 +58,7 @@ const ListOfContacts = ({saveContact, onDelete, setIsEditing, prepopulateEditFor
                 <div>
                  
                     <h2>List of Contacts</h2>
-                    {saveContact.map(({id,name,email},index, arr)=>(
+                    {contacts.map(({id,name,email},index, arr)=>(
 
                         <div key={index}>
                             <p>{id}</p>
@@ -58,7 +72,7 @@ const ListOfContacts = ({saveContact, onDelete, setIsEditing, prepopulateEditFor
                     ))}
                 
                 </div>
-            )}
+            )} */}
         
         </>
     );
