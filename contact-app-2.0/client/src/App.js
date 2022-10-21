@@ -4,6 +4,12 @@ import CreateContact from "./components/CreateContact";
 import EditContact from "./components/EditForm";
 import Header from "./components/Header";
 import './index.css';
+// import axios from "axios";
+
+import { GlobalProvider } from "./context/GlobalState";
+
+
+// const baseURL = "http://localhost:4000/api/v1/contacts";
 
 
 function App() {
@@ -39,7 +45,16 @@ function App() {
       const [isEditing, setIsEditing] = useState(false);
 
       const [savedContacts, setSavingContacts] = useState([]);
-      //useEffect to run once the component mounts
+      
+      // useEffect(() => {
+      //   axios.get(baseURL).then((response) => {
+      //     setSavingContacts(response.data);
+
+      //     console.log(response.data)
+      //   });
+
+      //   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // }, []);
 
       // console.log(contacts);
       //function to manage saving contacts
@@ -83,6 +98,7 @@ function App() {
     // console.log(contacts);
 
       return (
+      <GlobalProvider>
         <div className="container">
           <Header/>
           {isEditing ? (
@@ -96,13 +112,14 @@ function App() {
           />
           )}
           <ListOfContacts
-            contacts= {contacts}
+            saveContact= {savedContacts}
             onDelete={deleteContact}
             prepopulateEditForm={prepopulateEditForm}
             setIsEditing={setIsEditing}
           />
           
         </div>
+        </GlobalProvider>
       );
 }
 
