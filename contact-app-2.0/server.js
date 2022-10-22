@@ -2,6 +2,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors'); //just for the colors in the terminal
 const connectDB = require('./config/db');
+const morgan = require('morgan');
+
 // const cors = require('cors');
 
 dotenv.config({ path: './config/config.env'});
@@ -16,6 +18,9 @@ const app = express();
 
 app.use(express.json()); //is an express middleware in express. parses incoming JSON requests, puts parsed in req.body
 
+if(process.env.NODE_ENV === 'development'){
+    app.use(morgan('dev'))
+}
 
 
 app.use('/api/v1/contacts', contacts); //this sets up my api route

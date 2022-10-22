@@ -1,12 +1,12 @@
-import {React,useState, useEffect} from "react";
-import axios from "axios";
+import {React,useState,useContext} from "react";
+import { GlobalContext } from "../context/GlobalState";
 
 
 //click create. 
 // add new contact to set of contacts
 // show contacts on the DOM
 
-const  CreateContact = ({saveContact}) => {
+export default function CreateContact(){
 
     const initialFormState = {
         id: "",
@@ -15,28 +15,40 @@ const  CreateContact = ({saveContact}) => {
         email: " ",
     }
 
+    const {addContact} = useContext(GlobalContext);
+
     const [contact, setContacts] = useState(initialFormState);
 
 
     // handling when a change in a form
-    function handleChange(event){
-        const {name, value} = event.target; // this help to grab the value of the targeted name 
+    // function handleChange(event){
+    //     const {name, value} = event.target; // this help to grab the value of the targeted name 
 
-        setContacts((contact)=>{
-            return{
-                ...contact,
-                [name]: value
-            }
-        })
-    }
+    //     setContacts((contact)=>{
+    //         return{
+    //             ...contact,
+    //             [name]: value
+    //         }
+    //     })
+
+    
+    // }
 
     // handling the form when it submits
     const submitContact =(event) => {
         event.preventDefault();
 
-        saveContact(contact); //send to app.js 
+        // saveContact(contact); //send to app.js 
+        const newContact = {
+            id: "",
+            name: " ",
+            phone: " ",
+            email: " ",
+        }
 
-        setContacts(initialFormState); //this clears the input form
+        addContact(newContact);
+
+        // setContacts(initialFormState); //this clears the input form
     
     }
 
@@ -49,21 +61,21 @@ const  CreateContact = ({saveContact}) => {
             <form onSubmit={submitContact}>
                 <input
                     type="text" 
-                    onChange={handleChange} 
+                    onChange={(e)=> setContacts(e.target.value)} 
                     value={name} 
                     name="name"  
                     placeholder="name"
                 />
                 <input
                     type="tel" 
-                    onChange={handleChange} 
+                    onChange={(e)=> setContacts(e.target.value)}
                     value={phone} 
                     name="phone" 
                     placeholder="phone"/>
 
                 <input 
                     type="email"
-                    onChange={handleChange} 
+                    onChange={(e)=> setContacts(e.target.value)}
                     value={email} 
                     name="email" 
                     placeholder="email"
@@ -74,4 +86,3 @@ const  CreateContact = ({saveContact}) => {
         </div>)
 
 }
-export default CreateContact;

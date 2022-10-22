@@ -41,11 +41,37 @@ export const GlobalProvider = ({children}) => {
         }
     } 
 
+
+    async function addContact(contact){
+        const config = {
+            headers: {
+                'Content-Type': "application/json"
+            }
+        }
+
+        try {
+            const res = await axios.post('/api/v1/contacts', contact, config);
+
+            dispatch({
+                type: 'ADD_CONTACT',
+                payload: res.data.data
+            });
+
+        } catch (err) {
+            dispatch({
+                type: "CONTACT_ERROR",
+                payload: err.response.data.error
+            }); 
+        }
+
+    }
+
     return(<GlobalContext.Provider value={{
         contacts: state.contacts,
         error: state.error,
         loading: state.loading,
-        getContacts
+        getContacts,
+        addContact
     }}
     
         

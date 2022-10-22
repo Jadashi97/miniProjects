@@ -9,7 +9,7 @@ function ListOfContacts() {
 
     const {contacts, getContacts} = useContext(GlobalContext);
 
-    console.log(contacts);
+    // console.log(contacts);
 
     useEffect(()=>{
         getContacts();

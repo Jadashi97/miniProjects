@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ListOfContacts from "./components/ListOfContacts";
-// import CreateContact from "./components/CreateContact";
+import CreateContact from "./components/CreateContact";
 // import EditContact from "./components/EditForm";
 import Header from "./components/Header";
 import './index.css';
 // import axios from "axios";
 
 import { GlobalProvider } from "./context/GlobalState";
-
-
-// const baseURL = "http://localhost:4000/api/v1/contacts";
 
 
 function App() {
@@ -99,27 +96,28 @@ function App() {
 
       return (
       <GlobalProvider>
-        <div className="container">
           <Header/>
-          <ListOfContacts/>
-          {/* {isEditing ? (
-            <EditContact
-              editContact={editContact}
-              initialEditContact={initialEditContact}
+          <div className="container">
+            <ListOfContacts/>
+            <CreateContact/>
+            {/* {isEditing ? (
+              <EditContact
+                editContact={editContact}
+                initialEditContact={initialEditContact}
+              />
+            ) :(
+              <CreateContact
+              saveContact={saveContact}
             />
-          ) :(
-            <CreateContact
-            saveContact={saveContact}
-          />
-          )}
-          <ListOfContacts
-            saveContact= {savedContacts}
-            onDelete={deleteContact}
-            prepopulateEditForm={prepopulateEditForm}
-            setIsEditing={setIsEditing}
-          /> */}
-          
-        </div>
+            )}
+            <ListOfContacts
+              saveContact= {savedContacts}
+              onDelete={deleteContact}
+              prepopulateEditForm={prepopulateEditForm}
+              setIsEditing={setIsEditing}
+            /> */}
+            
+          </div>
         </GlobalProvider>
       );
 }

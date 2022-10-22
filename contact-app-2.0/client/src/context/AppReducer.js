@@ -4,7 +4,13 @@ function AppReducer(state, action){
             return{
                 ...state,
                 loading: false,
-                transactions: action.payload
+                contacts: action.payload
+            }
+        case "ADD_CONTACT":
+            return{
+                ...state,
+                contacts: [...state.contacts, action.payload]
+
             }
         case "CONTACT_ERROR":
             return{
