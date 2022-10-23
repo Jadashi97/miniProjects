@@ -45,7 +45,7 @@ function ListOfContacts() {
     return(
         <>
             <h2>List of Contacts</h2>
-                    {contacts.map((contact)=> (<ContactItem key={contact.id} contact={contact}/>))}
+                    {contacts.map((contact)=> (<ContactItem key={contact._id} contact={contact}/>))}
 
         {/* use the ternary operator to conditionally render the details of the contacts when clicked on
             {isDetails ? (

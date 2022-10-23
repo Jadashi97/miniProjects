@@ -6,6 +6,11 @@ function AppReducer(state, action){
                 loading: false,
                 contacts: action.payload
             }
+        case "DELETE_CONTACT":
+            return{
+                ...state,
+                contacts: state.contacts.filter(contact => contact._id !== action.payload)
+            }
         case "ADD_CONTACT":
             return{
                 ...state,

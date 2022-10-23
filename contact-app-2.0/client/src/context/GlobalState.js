@@ -39,13 +39,30 @@ export const GlobalProvider = ({children}) => {
             });
             
         }
-    } 
+    }
+
+    async function deleteContact(id){
+        try {
+            await axios.delete(`/api/v1/contacts/${id}`);
+
+            dispatch({
+                type: 'DELETE_CONTACT',
+                payload: id
+            });
+
+        } catch (err) {
+            dispatch({
+                type: 'CONTACT_ERROR',
+                payload: err.response.data.error
+            });
+        }
+    }
 
 
     async function addContact(contact){
         const config = {
             headers: {
-                'Content-Type': "application/json"
+                'Content-Type': 'application/json'
             }
         }
 
@@ -71,6 +88,7 @@ export const GlobalProvider = ({children}) => {
         error: state.error,
         loading: state.loading,
         getContacts,
+        deleteContact,
         addContact
     }}
     

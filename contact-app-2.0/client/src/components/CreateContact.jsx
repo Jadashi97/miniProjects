@@ -8,31 +8,32 @@ import { GlobalContext } from "../context/GlobalState";
 
 export default function CreateContact(){
 
-    const initialFormState = {
-        id: "",
-        name: " ",
-        phone: " ",
-        email: " ",
-    }
+    // const initialFormState = {
+    //     id: "",
+    //     name: " ",
+    //     phone: " ",
+    //     email: " ",
+    // }
 
     const {addContact} = useContext(GlobalContext);
 
-    const [contact, setContacts] = useState(initialFormState);
-
+    const [contact, setContact] = useState('');
+    
+    const {id, name, phone, email} = contact; //destructure contact to practice DRY
 
     // handling when a change in a form
-    // function handleChange(event){
-    //     const {name, value} = event.target; // this help to grab the value of the targeted name 
+    function handleChange(event){
+        const {name, value} = event.target; // this help to grab the value of the targeted name 
 
-    //     setContacts((contact)=>{
-    //         return{
-    //             ...contact,
-    //             [name]: value
-    //         }
-    //     })
+        setContact((contact)=>{
+            return{
+                ...contact,
+                [name]: value
+            }
+        })
 
     
-    // }
+    }
 
     // handling the form when it submits
     const submitContact =(event) => {
@@ -40,10 +41,12 @@ export default function CreateContact(){
 
         // saveContact(contact); //send to app.js 
         const newContact = {
-            id: "",
-            name: " ",
-            phone: " ",
-            email: " ",
+            id: Math.floor(Math.random() * 100000000),
+            text: name,
+            phone: phone,
+            email: email
+
+
         }
 
         addContact(newContact);
@@ -53,7 +56,6 @@ export default function CreateContact(){
     }
 
     
-    const {id, name, phone, email} = contact; //destructure contact to practice DRY
 
     return(
         <div key={id}>
@@ -61,21 +63,21 @@ export default function CreateContact(){
             <form onSubmit={submitContact}>
                 <input
                     type="text" 
-                    onChange={(e)=> setContacts(e.target.value)} 
+                    onChange={handleChange} 
                     value={name} 
                     name="name"  
                     placeholder="name"
                 />
                 <input
                     type="tel" 
-                    onChange={(e)=> setContacts(e.target.value)}
+                    onChange={handleChange}
                     value={phone} 
                     name="phone" 
                     placeholder="phone"/>
 
                 <input 
                     type="email"
-                    onChange={(e)=> setContacts(e.target.value)}
+                    onChange={handleChange}
                     value={email} 
                     name="email" 
                     placeholder="email"

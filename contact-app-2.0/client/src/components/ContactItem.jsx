@@ -7,12 +7,12 @@ export default function ContactItem({contact}) {
 
     return (
        <ul>
-            {contact.text}{" "} <br />
+            {contact.name}{" "} <br />
             {contact.phone}{" "}<br />
             {contact.email}{" "}<br /> 
             {/* {contact.name}{" "}<br />
             {/* <button onClick={(e) => onEditClick(contact)}>Edit</button> */}
-            <button onClick={()=> deleteContact(contact.id)}>delete</button>
+            <button onClick={()=> deleteContact(contact._id)}>delete</button>
         </ul>
     );
 }
