@@ -2,18 +2,8 @@ import {React,useState,useContext} from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 
-//click create. 
-// add new contact to set of contacts
-// show contacts on the DOM
-
 export default function CreateContact(){
 
-    // const initialFormState = {
-    //     id: "",
-    //     name: " ",
-    //     phone: " ",
-    //     email: " ",
-    // }
 
     const {addContact} = useContext(GlobalContext);
 
@@ -45,8 +35,6 @@ export default function CreateContact(){
             text: name,
             phone: phone,
             email: email
-
-
         }
 
         addContact(newContact);
@@ -66,18 +54,18 @@ export default function CreateContact(){
                     onChange={handleChange} 
                     value={name} 
                     name="name"  
-                    placeholder="name"
+                    placeholder="fName"
                 />
                 <input
                     type="tel" 
-                    onChange={handleChange}
+                    onChange={handleChange} 
                     value={phone} 
                     name="phone" 
                     placeholder="phone"/>
 
                 <input 
                     type="email"
-                    onChange={handleChange}
+                    onChange={handleChange}  
                     value={email} 
                     name="email" 
                     placeholder="email"
