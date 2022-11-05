@@ -2,35 +2,26 @@ import React, {createContext, useReducer} from "react";
 import AppReducer from "../context/AppReducer";
 import axios from "axios";
 
-
-// initial State
+export const CONTACTS_URL = '/api/v1/contacts';
 
 const initialState = {
-    
     contacts: [],
     error: null,
     loading: true
 }
 
-// create context
 export const GlobalContext = createContext(initialState);
-
-// Perovider Component 
+ 
 export const GlobalProvider = ({children}) => {
     const [state, dispatch] =useReducer(AppReducer, initialState);
 
-
-    // Actions
-    
-    //use axios to fetch data from backend
     async function getContacts(){
         try {
-            const res = await axios.get('/api/v1/contacts');
+            const {data} = await axios.get(CONTACTS_URL);
 
-            // below will dispatch the getContacts from the AppReducer
             dispatch({
                 type: "GET_CONTACTS",
-                payload: res.data.data
+                payload: data.data
             })
         } catch (err) {
             dispatch({
@@ -57,7 +48,6 @@ export const GlobalProvider = ({children}) => {
             });
         }
     }
-
 
     async function addContact(contact){
         const config = {
@@ -91,8 +81,6 @@ export const GlobalProvider = ({children}) => {
         deleteContact,
         addContact
     }}
-    
-        
     >
         {children}
     </GlobalContext.Provider>)

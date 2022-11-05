@@ -41,7 +41,7 @@ function ListOfContacts() {
 
     //     prepopulateEditForm(contact);
     // }
-
+ 
     return(
         <>
             <h2>List of Contacts</h2>

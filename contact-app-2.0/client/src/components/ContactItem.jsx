@@ -7,7 +7,7 @@ export default function ContactItem({contact}) {
 
     return (
        <ul>
-            {contact.name}{" "} <br />
+            {contact.text}{" "} <br />
             {contact.phone}{" "}<br />
             {contact.email}{" "}<br /> 
             {/* {contact.name}{" "}<br />
