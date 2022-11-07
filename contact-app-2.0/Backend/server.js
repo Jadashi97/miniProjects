@@ -15,13 +15,11 @@ const app = express();
 
 // app.use(cors());
 
-
-app.use(express.json()); //is an express middleware in express. parses incoming JSON requests, puts parsed in req.body
+app.use(express.json()); //is an express middleware. parses incoming JSON requests, puts parsed in req.body
 
 if(process.env.NODE_ENV === 'development'){
     app.use(morgan('dev'))
 }
-
 
 app.use('/api/v1/contacts', contacts); //this sets up my api route
 

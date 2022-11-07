@@ -6,14 +6,10 @@ import { GlobalContext } from "../context/GlobalState";
 
 
 function ListOfContacts() {
-
     const {contacts, getContacts} = useContext(GlobalContext);
-
-    // console.log(contacts);
 
     useEffect(()=>{
         getContacts();
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

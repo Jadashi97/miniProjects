@@ -4,14 +4,12 @@ import { GlobalContext } from "../context/GlobalState";
 
 export default function CreateContact(){
 
-
     const {addContact} = useContext(GlobalContext);
 
     const [contact, setContact] = useState('');
     
     const {id, name, phone, email} = contact; //destructure contact to practice DRY
 
-    // handling when a change in a form
     function handleChange(event){
         const {name, value} = event.target; // this help to grab the value of the targeted name 
 
@@ -21,11 +19,8 @@ export default function CreateContact(){
                 [name]: value
             }
         })
-
-    
     }
 
-    // handling the form when it submits
     const submitContact =(event) => {
         event.preventDefault();
 
@@ -37,13 +32,8 @@ export default function CreateContact(){
             email: email
         }
 
-        addContact(newContact);
-
-        // setContacts(initialFormState); //this clears the input form
-    
+        addContact(newContact); 
     }
-
-    
 
     return(
         <div key={id}>
