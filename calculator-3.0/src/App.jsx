@@ -11,7 +11,7 @@ function App() {
       <h1>Calculator 3.0</h1>
       <form action="">
         <label>
-          Input Number:
+          {/* Input Number: */}
         </label>
         <input/>
         <br/>
