@@ -4,13 +4,27 @@ import './App.css';
 
 
 function App() {
-  const inputRef = useRef(null);
-  const resultRef = useRef(null);
+  const inputRef = useRef(null); // useRef === used to only refer a value that we dont need to render
+  const resultRef = useRef(null); 
   const [result, setResult] = useState(0);
 
   const plus = (e)=> {
     e.preventDefault()
-    setResult((result)=> result + Number(inputRef.current.value))
+    setResult((result)=> result + Number(inputRef.current.value));
+  }
+  const substract = (e)=> {
+    e.preventDefault();
+    setResult((result)=> result - Number(inputRef.current.value));
+  }
+
+  const multiply = (e)=> {
+    e.preventDefault()
+    setResult((result)=> result * Number(inputRef.current.value));
+  }
+
+  const divide = (e)=> {
+    e.preventDefault()
+    setResult((result)=> result / Number(inputRef.current.value));
   }
 
 
@@ -37,10 +51,12 @@ function App() {
           placeholder='Type number'
         />
         <br />
-        <button>add</button>
-        <button onClick={resetResult}>reset Result</button>
-        <button>{resetInput}</button>
-
+        <button onClick={plus}>+</button>
+        <button onClick={substract}>-</button>
+        <button onClick={multiply}>*</button>
+        <button onClick={divide}>/</button>
+        <button onClick={resetResult}>🔄Result</button>
+        <button onClick={resetInput}>🔄Input</button>
       </form>
     </div>
   )
