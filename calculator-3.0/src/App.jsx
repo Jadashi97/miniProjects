@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   const inputRef = useRef(null); // useRef === used to only refer a value that we dont need to render
-  const resultRef = useRef(null); 
+  // const resultRef = useRef(null); // also it could be said, it is a way to access the DOM
   const [result, setResult] = useState(0);
 
   const plus = (e)=> {
@@ -43,7 +43,7 @@ function App() {
     <div className="App">
       <h1>Calculator 3.0</h1>
       <form action="">
-        <p>{result}</p>
+        <h4>Result: {result}</h4>
         <input
           pattern='[0-9]'
           ref={inputRef}
