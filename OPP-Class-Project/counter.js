@@ -1,4 +1,4 @@
-export class Animal {
+class Animal {
     constructor(color= "yellow", energy = 100){
       this.color = color;
       this.energy = energy;
@@ -20,7 +20,7 @@ export class Animal {
     }
 }
 
-export class Cat extends Animal{
+class Cat extends Animal{
   constructor(sound="purr", canJumpHigh= true, canClimbTrees = true, color, energy){
     super(color, energy);
     this.sound = sound;
@@ -32,7 +32,7 @@ export class Cat extends Animal{
   }
 }
 
-export class Bird extends Animal(){
+class Bird extends Animal(){
   constructor(sound='chirp', canFly= true, color, energy){
     super(color, energy);
     this.sound = sound;
@@ -43,7 +43,7 @@ export class Bird extends Animal(){
   }
 }
 
-export class HouseCat extends Animal(){
+class HouseCat extends Animal(){
   constructor(houseCatSound='meow', sound, canJumpHigh, canClimbTrees){
     super(color, energy, sound, canClimbTrees, canJumpHigh);
     this.houseCatSound = houseCatSound;
@@ -57,7 +57,7 @@ export class HouseCat extends Animal(){
 };
 
 
-export class Tiger extends Animal{
+class Tiger extends Animal{
   constructor(tigerSound="puurrs", sound, canJumpHigh, canClimbTrees, color, energy){
     super(sound, color, energy, canClimbTrees, canJumpHigh)
     this.tigerSound = tigerSound;
@@ -70,7 +70,7 @@ export class Tiger extends Animal{
   }
 };
 
-export class Parrot extends Animal{
+class Parrot extends Animal{
   constructor(canTalk= false, sound, canFly, color,  energy){
     super(energy, sound, canFly, color)
     this.canTalk = canTalk;
@@ -84,3 +84,10 @@ export class Parrot extends Animal{
     }
   }
 };
+
+// export default Animal; {Cat, HouseCat, Parrot, Tiger, Bird };
+module.exports = Cat;
+module.exports = HouseCat;
+module.exports = Parrot;
+module.exports = Tiger;
+module.exports = Bird;
