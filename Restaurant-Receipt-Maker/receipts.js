@@ -34,8 +34,8 @@ const getPrices = (taxBoolean) => {
             console.log("You need to pass a boolean to the get Prices call!");
             return;
         }
-        console.log(`Dish: ${dishData[i].name}, Price: $ ${finalPrice}`);      
-        return(`Dish: ${dishData[i].name}, Price: $ ${finalPrice}`);      
+        console.log(`Dish: ${dishData[i].name}, Price: $ ${finalPrice}`);
+        return(`Dish: ${dishData[i].name}, Price: $ ${finalPrice}`);
     }
 }
 
@@ -50,10 +50,8 @@ const getDiscount = (taxBoolean, guests) => {
         }else if(guests >= 5){
             discount = 10;
         }
-        // console.log("Discount is: $" + discount);
         return("Discount is: $" + discount);
     }else{
-        // console.log("The second argument must be a number between 0 and 30")
         return("The second argument must be a number between 0 and 30");
     }
 
