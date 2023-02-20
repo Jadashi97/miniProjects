@@ -1,4 +1,5 @@
 var  word1 = document.querySelectorAll("letters").length;
+console.log("here")
 
 for(var i = 0; i < word1; i++){
     document.querySelectorAll(".letters")[i].addEventListener("click", function(){
